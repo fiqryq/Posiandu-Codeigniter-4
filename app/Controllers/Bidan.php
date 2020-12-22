@@ -2,8 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Models\ArtikelModel;
+
 class Bidan extends BaseController
 {
+    protected $artikelmodel;
+    public function __construct()
+    {
+        $this->artikelmodel = new ArtikelModel();
+    }
+
     public function index()
     {
         $data = ['title' => "Penyuluhan"];
@@ -14,6 +22,22 @@ class Bidan extends BaseController
     {
         $data = ['title' => "Artikel"];
         return view('bidan/artikel', $data);
+    }
+
+    public function createarticle()
+    {
+        $title = ['title' => "tambah kader"];
+        $date = date("Y/m/d");
+        $penulis = session()->get('user_name');
+        $data = array(
+            'judul' => $this->request->getPost('judul'),
+            'body' => $this->request->getPost('isiartikel'),
+            'penulis' => $penulis,
+            'created_at' => $date
+        );
+        $this->artikelmodel->saveArtikel($data);
+        // dd($data);
+        return view('bidan/artikel', $title);
     }
 
     public function profile()

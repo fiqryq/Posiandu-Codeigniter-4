@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ArtikelModel extends Model
 {
     protected $table = 'artikel';
-    // protected $allowedFields = ['username', 'email', 'password', 'nik', 'alamat'];
+    protected $allowedFields = ['judul', 'body'];
 
     public function saveArtikel($data)
     {

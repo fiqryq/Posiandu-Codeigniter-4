@@ -8,14 +8,14 @@
         </div>
         <div class="card-body">
             <!-- start form -->
-            <form>
+            <form action="/bidan/createarticle" method="POST">
                 <div class="form-group">
-                    <label for="Judul Artikel">Email address</label>
-                    <input type="text" class="form-control" id="Judul Artikel" autofocus placeholder="masukan judul artikel">
+                    <label for="Judul Artikel">Judul Artikel</label>
+                    <input name="judul" type="text" class="form-control" id="judul" autofocus placeholder="masukan judul artikel">
                 </div>
                 <div class="form-group">
                     <label for="isiartikel">Artikel</label>
-                    <textarea class="form-control" id="isiartikel" rows="3" placeholder="masukan isi artikel"></textarea>
+                    <textarea name="isiartikel" class="form-control" id="isiartikel" rows="3" placeholder="masukan isi artikel"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Submit Artikel</button>
             </form>
