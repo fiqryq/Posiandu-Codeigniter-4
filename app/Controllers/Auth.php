@@ -102,6 +102,7 @@ class Auth extends BaseController
             'level' => $level,
         );
         $this->userModel->saveData($data);
+        session()->setFlashdata('berhasil', 'Berhasil Menambahkan Kader');
         return view('admin/addkader', $title);
     }
 
@@ -118,6 +119,7 @@ class Auth extends BaseController
             'level' => $level,
         );
         $this->userModel->saveData($data);
+        session()->setFlashdata('berhasil', 'Berhasil Menambahkan Bidan');
         return view('admin/addbidan', $title);
     }
 

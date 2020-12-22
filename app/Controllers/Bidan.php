@@ -37,6 +37,8 @@ class Bidan extends BaseController
         );
         $this->artikelmodel->saveArtikel($data);
         // dd($data);
+        // Add Flash data session
+        session()->setFlashdata('berhasil', 'Berhasil Menambahkan Artikel');
         return view('bidan/artikel', $title);
     }
 

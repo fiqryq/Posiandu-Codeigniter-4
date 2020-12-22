@@ -7,6 +7,15 @@
             <h6 class="m-0 font-weight-bold text-dark">Artikel</h6>
         </div>
         <div class="card-body">
+            <!-- Flash Data -->
+            <?php
+            if (!empty(session()->getFlashdata('berhasil'))) { ?>
+                <div class="alert alert-success">
+                    <?php echo session()->getFlashdata('berhasil') ?>
+                </div>
+            <?php } ?>
+            <!-- End Flash Data -->
+
             <!-- start form -->
             <form action="/bidan/createarticle" method="POST">
                 <div class="form-group">
