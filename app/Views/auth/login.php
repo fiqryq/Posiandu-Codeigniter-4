@@ -28,6 +28,7 @@
 
                                     <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
                                 </form>
+                                <!-- flash data on failed login -->
                                 <p>
                                     <?php
                                     if (!empty(session()->getFlashdata('gagal'))) { ?>

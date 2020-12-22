@@ -47,14 +47,14 @@
 
     <!-- Nav Item - My profile -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="<?= base_url('admin/profile'); ?>">
             <i class="fas fa-user"></i>
             <span>Profile</span></a>
     </li>
 
     <!-- Nav Item - Edit profile -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?= base_url('admin/edit_profile'); ?>">
             <i class="fas fa-user-edit"></i>
             <span>Edit Profile</span></a>
     </li>
