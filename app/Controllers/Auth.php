@@ -100,7 +100,7 @@ class Auth extends BaseController
             'level' => $level,
         );
         $this->userModel->saveData($data);
-
+        session()->setFlashdata('berhasil', 'Berhasil Mendaftar silahkan login');
         return redirect()->to('/');
     }
 

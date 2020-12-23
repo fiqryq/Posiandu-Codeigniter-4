@@ -16,7 +16,7 @@
                         <div class="col-lg">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Dipandu</h1>
                                 </div>
                                 <form class="user" method="POST" action="<?= base_url('auth/login_action'); ?>">
                                     <div class="form-group">
@@ -34,6 +34,23 @@
                                     if (!empty(session()->getFlashdata('gagal'))) { ?>
                                         <div class="alert alert-warning">
                                             <?php echo session()->getFlashdata('gagal') ?>
+                                        </div>
+                                    <?php } ?>
+                                </p>
+                                <!-- Login Failed -->
+                                <p>
+                                    <?php
+                                    if (!empty(session()->getFlashdata('warning'))) { ?>
+                                        <div class="alert alert-danger">
+                                            <?php echo session()->getFlashdata('warning') ?>
+                                        </div>
+                                    <?php } ?>
+                                </p>
+                                <p>
+                                    <?php
+                                    if (!empty(session()->getFlashdata('berhasil'))) { ?>
+                                        <div class="alert alert-success">
+                                            <?php echo session()->getFlashdata('berhasil') ?>
                                         </div>
                                     <?php } ?>
                                 </p>
