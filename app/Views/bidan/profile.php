@@ -16,16 +16,16 @@
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td>User Mail</td>
+                        <td><?php echo session()->get('user_email'); ?></td>
 
                     </tr>
                     <tr>
                         <td>Nik</td>
-                        <td>User Nik</td>
+                        <td><?php echo session()->get('user_nik'); ?></td>
                     </tr>
                     <tr>
                         <td>Alamat</td>
-                        <td>User Alamat</td>
+                        <td><?php echo session()->get('user_alamat'); ?></td>
                     </tr>
                     <tr>
                         <td colspan="2">
