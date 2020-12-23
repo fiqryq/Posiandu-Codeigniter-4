@@ -46,18 +46,34 @@ class Auth extends BaseController
             if ($cek['level'] == 0) {
                 session()->set('user_email', $cek['user_email']);
                 session()->set('user_name', $cek['user_name']);
+                session()->set('id', $cek['id']);
+                session()->set('level', $cek['level']);
+                session()->set('user_alamat', $cek['user_alamat']);
+                session()->set('user_nik', $cek['user_nik']);
                 return redirect()->to(base_url('user'));
             } else if ($cek['level'] == 1) {
                 session()->set('user_email', $cek['user_email']);
                 session()->set('user_name', $cek['user_name']);
+                session()->set('id', $cek['id']);
+                session()->set('level', $cek['level']);
+                session()->set('user_alamat', $cek['user_alamat']);
+                session()->set('user_nik', $cek['user_nik']);
                 return redirect()->to(base_url('admin'));
             } else if ($cek['level'] == 2) {
                 session()->set('user_email', $cek['user_email']);
                 session()->set('user_name', $cek['user_name']);
+                session()->set('id', $cek['id']);
+                session()->set('level', $cek['level']);
+                session()->set('user_alamat', $cek['user_alamat']);
+                session()->set('user_nik', $cek['user_nik']);
                 return redirect()->to(base_url('bidan'));
             } else if ($cek['level'] == 3) {
                 session()->set('user_email', $cek['user_email']);
                 session()->set('user_name', $cek['user_name']);
+                session()->set('id', $cek['id']);
+                session()->set('level', $cek['level']);
+                session()->set('user_alamat', $cek['user_alamat']);
+                session()->set('user_nik', $cek['user_nik']);
                 return redirect()->to(base_url('kader'));
             }
         } else {

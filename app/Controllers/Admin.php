@@ -12,6 +12,7 @@ class Admin extends BaseController
         $this->userModel = new UserModel();
     }
 
+
     public function index()
     {
         $user = $this->userModel->findAll();

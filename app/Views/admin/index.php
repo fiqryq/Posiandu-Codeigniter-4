@@ -20,6 +20,7 @@
                         <th>Nik</th>
                         <th>Role</th>
                         <th>Alamat</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,7 @@
                                     echo "kader";
                                 } ?></td>
                             <td><?= $k['user_alamat']; ?></td>
+                            <td><button class="btn btn-danger">Hapus</button></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
