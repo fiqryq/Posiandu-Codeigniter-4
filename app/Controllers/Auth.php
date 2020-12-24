@@ -139,6 +139,16 @@ class Auth extends BaseController
         return view('admin/addbidan', $title);
     }
 
+    public function delete_user($id)
+    {
+        if (session()->get('level' == 1)) {
+            $this->userModel->delete($id);
+            session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
+
+            return redirect()->to(base_url('/admin'));
+        }
+    }
+
     public function logout()
     {
         session()->destroy();
