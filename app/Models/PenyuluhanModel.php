@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class PenyuluhanModel extends Model
 {
     protected $table = 'penyuluhan';
-    protected $allowedFields = ['id_penyuluhan', 'kegiatan', 'date'];
+    protected $allowedFields = ['kegiatan', 'date'];
 
     public function saveData($data)
     {

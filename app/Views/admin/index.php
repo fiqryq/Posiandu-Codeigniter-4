@@ -5,7 +5,8 @@
 
 <div class="container-fluid">
     <div class="card shadow mb-4">
-        <div class="card-body" <!-- Flash Data -->
+        <div class="card-body">
+            <!-- Flash Data -->
             <?php
             if (!empty(session()->getFlashdata('pesan'))) { ?>
                 <div class="alert alert-success">

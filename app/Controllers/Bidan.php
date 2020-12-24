@@ -58,15 +58,24 @@ class Bidan extends BaseController
     public function addpenyuluhan()
     {
         $title = ['title' => "Penyuluhan"];
-        $idp = rand(999);
+        $idp = "tes";
         $data = array(
-            'id_penyuluhan' => $idp,
             'kegiatan' => $this->request->getPost('kegiatan'),
             'date' => $this->request->getPost('date')
         );
         $this->penyuluhanmodel->saveData($data);
         session()->setFlashdata('berhasil', 'Berhasil menambahkan data penyuluhan');
         return view('bidan/penyuluhan', $title);
+    }
+
+    public function delete_penyuluhan($id)
+    {
+        if (session()->get('level' == 2)) {
+            $this->penyuluhanmodel->delete($id);
+            session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
+
+            return redirect()->to(base_url('/bidan'));
+        }
     }
 
     public function profile()

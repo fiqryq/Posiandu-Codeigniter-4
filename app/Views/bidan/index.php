@@ -21,6 +21,16 @@
             <h6 class="m-0 font-weight-bold text-dark">Penyuluhan</h6>
         </div>
         <div class="card-body">
+
+            <!-- Flash Data -->
+            <?php
+            if (!empty(session()->getFlashdata('pesan'))) { ?>
+                <div class="alert alert-success">
+                    <?php echo session()->getFlashdata('pesan') ?>
+                </div>
+            <?php } ?>
+            <!-- End Flash Data -->
+
             <!-- start  -->
             <table id="example" class="display" style="width:100%">
                 <thead>
@@ -35,6 +45,7 @@
                 <tbody>
                     <?php $i = 1 ?>
                     <?php foreach ($penyuluhan as $k) : ?>
+                        <?php $id = $k['id'] ?>
                         <tr>
                             <td><?= $i++; ?></td>
                             <td><?= $k['id_penyuluhan']; ?></td>
@@ -64,11 +75,11 @@
             </div>
             <div class="modal-body">
                 <!-- Content -->
-                <p>apakan anda yakin akan menghapus user?</p>
+                <p>apakan anda yakin akan menghapus penyuluhan?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="#" class="btn btn-danger">Hapus</a>
+                <a href="<?= base_url('bidan/delete_penyuluhan/' . $id) ?>" class="btn btn-danger">Hapus</a>
             </div>
         </div>
     </div>
@@ -114,18 +125,19 @@
                 <form action="/bidan/addpenyuluhan" action="POST">
                     <div class="form-group">
                         <label for="kegiatan" class="col-form-label">Nama kegiatan</label>
-                        <input type="text" class="form-control" id="namakegiatan" name="kegiatan">
+                        <input type="text" class="form-control" name="kegiatan">
                     </div>
                     <div class="form-group">
                         <label for="waktu" class="col-form-label">Tanggal Pelaksanaan</label>
-                        <input type="date" class="form-control input-tanggal" id="waktu" name="date">
+                        <input type="date" class="form-control input-tanggal" name="date">
                     </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
                 </form>
                 <!-- end content -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" type="submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
             </div>
         </div>
     </div>
