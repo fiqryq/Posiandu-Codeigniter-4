@@ -29,7 +29,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a href="<?= base_url('admin/edit_profile') ?>" class="btn btn-primary btn-block"> Edit Profile</a>
+                            <button class="btn btn-primary btn-block">Edit profile</button>
                         </td>
                     </tr>
                 </tbody>
@@ -38,5 +38,6 @@
         </div>
     </div>
 </div>
+
 <!-- end content -->
 <?= $this->endSection(); ?>

@@ -3,13 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\ArtikelModel;
+use App\Models\PenyuluhanModel;
 
 class Bidan extends BaseController
 {
     protected $artikelmodel;
+    protected $penyuluhanmodel;
+
     public function __construct()
     {
         $this->artikelmodel = new ArtikelModel();
+        $this->penyuluhanmodel = new PenyuluhanModel();
     }
 
     public function index()
@@ -19,7 +23,11 @@ class Bidan extends BaseController
             return redirect()->to(base_url('/'));
         }
 
-        $data = ['title' => "Penyuluhan"];
+        $penyuluhan = $this->penyuluhanmodel->findAll();
+        $data = [
+            'title' => "Penyuluhan",
+            'penyuluhan' => $penyuluhan
+        ];
         return view('bidan/index', $data);
     }
 
@@ -45,6 +53,20 @@ class Bidan extends BaseController
         // Add Flash data session
         session()->setFlashdata('berhasil', 'Berhasil Menambahkan Artikel');
         return view('bidan/artikel', $title);
+    }
+
+    public function addpenyuluhan()
+    {
+        $title = ['title' => "Penyuluhan"];
+        $idp = rand(999);
+        $data = array(
+            'id_penyuluhan' => $idp,
+            'kegiatan' => $this->request->getPost('kegiatan'),
+            'date' => $this->request->getPost('date')
+        );
+        $this->penyuluhanmodel->saveData($data);
+        session()->setFlashdata('berhasil', 'Berhasil menambahkan data penyuluhan');
+        return view('bidan/penyuluhan', $title);
     }
 
     public function profile()
