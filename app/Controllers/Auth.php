@@ -107,7 +107,6 @@ class Auth extends BaseController
 
     public function register_kader()
     {
-        $title = ['title' => "tambah kader"];
         $level = 3;
         $data = array(
             'user_email' => $this->request->getPost('email'),
@@ -119,12 +118,11 @@ class Auth extends BaseController
         );
         $this->userModel->saveData($data);
         session()->setFlashdata('berhasil', 'Berhasil Menambahkan Kader');
-        return view('admin/addkader', $title);
+        return redirect()->to(base_url('admin/addkader'));
     }
 
     public function register_bidan()
     {
-        $title = ['title' => "tambah bidan"];
         $level = 2;
         $data = array(
             'user_email' => $this->request->getPost('email'),
@@ -136,7 +134,7 @@ class Auth extends BaseController
         );
         $this->userModel->saveData($data);
         session()->setFlashdata('berhasil', 'Berhasil Menambahkan Bidan');
-        return view('admin/addbidan', $title);
+        return redirect()->to(base_url('admin/addbidan'));
     }
 
     public function delete_user($id)
