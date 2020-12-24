@@ -48,7 +48,7 @@
                         <?php $id = $k['id'] ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td><?= $k['id_penyuluhan']; ?></td>
+                            <td><?= $k['id']; ?></td>
                             <td><?= $k['kegiatan']; ?></td>
                             <td><?= $k['date']; ?></td>
                             <td>
@@ -129,7 +129,7 @@
                     </div>
                     <div class="form-group">
                         <label for="waktu" class="col-form-label">Tanggal Pelaksanaan</label>
-                        <input type="date" class="form-control input-tanggal" name="date">
+                        <input type="text" class="form-control input-tanggal" name="date">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
 

@@ -33,7 +33,12 @@ class Bidan extends BaseController
 
     public function artikel()
     {
-        $data = ['title' => "Artikel"];
+        $artikeldata = $this->artikelmodel->findAll();
+        // dd($artikeldata);
+        $data = [
+            'title' => "Artikel",
+            'artikel' => $artikeldata
+        ];
         return view('bidan/artikel', $data);
     }
 
@@ -42,17 +47,20 @@ class Bidan extends BaseController
         $title = ['title' => "tambah kader"];
         $date = date("Y/m/d");
         $penulis = session()->get('user_name');
+        $id_penulis = session()->get('id');
         $data = array(
             'judul' => $this->request->getPost('judul'),
             'body' => $this->request->getPost('isiartikel'),
             'penulis' => $penulis,
-            'created_at' => $date
+            'created_at' => $date,
+            'id_penulis' => $id_penulis
         );
         $this->artikelmodel->saveArtikel($data);
         // dd($data);
         // Add Flash data session
         session()->setFlashdata('berhasil', 'Berhasil Menambahkan Artikel');
-        return view('bidan/artikel', $title);
+        // return view('bidan/artikel', $title);
+        return redirect()->to(base_url('bidan/artikel'));
     }
 
     public function addpenyuluhan()
@@ -65,7 +73,7 @@ class Bidan extends BaseController
         );
         $this->penyuluhanmodel->saveData($data);
         session()->setFlashdata('berhasil', 'Berhasil menambahkan data penyuluhan');
-        return view('bidan/penyuluhan', $title);
+        return view('bidan/index', $title);
     }
 
     public function delete_penyuluhan($id)
@@ -88,6 +96,18 @@ class Bidan extends BaseController
     {
         $data = ['title' => "Edit Profile"];
         return view('bidan/editprofile', $data);
+    }
+
+    public function laporan()
+    {
+        $data = ['title' => "laporan"];
+        return view('bidan/laporan', $data);
+    }
+
+    public function pesan()
+    {
+        $data = ['title' => "pesan"];
+        return view('bidan/pesan', $data);
     }
 }
     //--------------------------------------------------------------------

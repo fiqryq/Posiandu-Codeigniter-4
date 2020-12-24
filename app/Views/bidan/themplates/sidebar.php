@@ -32,6 +32,20 @@
             <span>Artikel</span></a>
     </li>
 
+    <!-- Nav Item -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('bidan/laporan')  ?>">
+            <i class="fas fa-database"></i>
+            <span>Laporan</span></a>
+    </li>
+
+    <!-- Nav Item -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('bidan/pesan')  ?>">
+            <i class="fas fa-envelope"></i>
+            <span>Pesan</span></a>
+    </li>
+
     <!-- Akhir sidebar gorup admin -->
 
     <!-- Heading -->
