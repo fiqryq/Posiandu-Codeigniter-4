@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="card shadow mb-4 mb-6">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-dark">Data Kader</h6>
+            <h6 class="m-0 font-weight-bold text-dark">Jadwal Imunisasi</h6>
         </div>
         <div class="card-body">
             <!-- start form -->
