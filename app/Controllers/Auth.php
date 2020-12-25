@@ -58,7 +58,7 @@ class Auth extends BaseController
         // 3 : kader
 
         if (($cek['user_email'] == $email) && ($cek['user_password'] == $password)) {
-            if ($cek['level'] == 0) {
+            if ($cek['level'] == 4) {
                 session()->set('user_email', $cek['user_email']);
                 session()->set('user_name', $cek['user_name']);
                 session()->set('id', $cek['id']);
