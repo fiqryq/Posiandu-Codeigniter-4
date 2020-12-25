@@ -1,29 +1,56 @@
 <?= $this->extend('user/themplates/index'); ?>
 <?= $this->section('content'); ?>
 <!-- content -->
-<div class="container-fluid">
-    <div class="card shadow mb-4 mb-6">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-dark">Artikel</h6>
-        </div>
-        <div class="card-body">
-            <!-- start form -->
-            <div class="list-group">
-                <?php foreach ($artikel as $key) : ?>
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><?= $key['judul']; ?></h5>
-                            <small><?= $key['created_at']; ?></small>
-                        </div>
-                        <p class="mb-1"><?= $key['body']; ?></p>
-                        <small><?= $key['penulis']; ?></small>
-                    </a>
-                <?php endforeach; ?>
-            </div>
 
-            <!-- end form -->
-        </div>
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-dark">Artikel Panduan Posyandu</h1>
     </div>
+
+    <!-- Content -->
+    <div class="row">
+        <?php foreach ($artikel as $key) : ?>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#"><?= $key['judul']; ?></a>
+                        </h4>
+                        <h5><?= $key['penulis']; ?></h5>
+                        <p class="card-text">
+                            <?= $key['body']; ?>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">
+                            dibuat pada <?= $key['created_at']; ?>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active">
+                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 </div>
+
 <!-- end content -->
 <?= $this->endSection(); ?>

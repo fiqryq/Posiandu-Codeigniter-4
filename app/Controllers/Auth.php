@@ -17,6 +17,21 @@ class Auth extends BaseController
 
     public function index()
     {
+        // dd(session()->get('level'));
+        if (session() != null) {
+            // Fix this shit
+            if (session()->get('level') == 4) {
+                return redirect()->to(base_url('/user'));
+            } elseif (session()->get('level') == 1) {
+                return redirect()->to(base_url('/admin'));
+            } elseif (session()->get('level') == 2) {
+                return redirect()->to(base_url('/bidan'));
+            } elseif (session()->get('level') == 3) {
+                return redirect()->to(base_url('/kader'));
+            }
+        } else {
+            return redirect()->to(base_url('auth/login'));
+        }
         return view('auth/login');
     }
 
@@ -135,6 +150,22 @@ class Auth extends BaseController
         $this->userModel->saveData($data);
         session()->setFlashdata('berhasil', 'Berhasil Menambahkan Bidan');
         return redirect()->to(base_url('admin/addbidan'));
+    }
+
+    public function edit_users($id)
+    {
+        if (session()->get('level') == 1) {
+            $this->userModel->editData([
+                'id' => $id,
+                'user_email' => $this->request->getPost('email'),
+                'user_name' => $this->request->getPost('username'),
+                'user_alamat' => $this->request->getPost('alamat'),
+                'user_nik' => $this->request->getPost('nik'),
+                'user_password' => $this->request->getPost('passowrd')
+            ]);
+            session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+            return redirect()->to(base_url('/admin'));
+        }
     }
 
     public function delete_user($id)

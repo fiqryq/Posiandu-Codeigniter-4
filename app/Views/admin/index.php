@@ -49,8 +49,12 @@
                                 } ?></td>
                             <td><?= $k['user_alamat']; ?></td>
                             <td>
-                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">Edit</button>
-                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusmodal" data-whatever="@mdo">Hapus</button>
+                                <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal" data-whatever="@mdo">
+                                    <i class="fas fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach ?>
@@ -96,11 +100,33 @@
             </div>
             <div class="modal-body">
                 <!-- Content -->
+                <form action="<?= base_url('auth/edit_users/' . $id) ?>" method="POST">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control form-control-user" id="username" placeholder="Masukan Username" name="username" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control form-control-user" id="email" placeholder="Masukan Email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control form-control-user" id="password" placeholder="Masukan Password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="nik">NIK(Nomor induk kependudukan)</label>
+                        <input type="text" class="form-control form-control-user" id="nik" placeholder="Masukan Nik" name="nik">
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                        <input type="text" class="form-control form-control-user" id="alamat" placeholder="Masukan Alamat" name="alamat">
+                    </div>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="#" class="btn btn-success">Hapus</a>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class=" btn btn-success">Edit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js">
+<link rel="stylesheet" href="<?= base_url() ?>/vendor/date/dist/css/bootstrap-datepicker.css">
 
 <!-- content -->
 <div class="container-fluid">
@@ -52,8 +52,12 @@
                             <td><?= $k['kegiatan']; ?></td>
                             <td><?= $k['date']; ?></td>
                             <td>
-                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">Edit</button>
-                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusmodal" data-whatever="@mdo">Hapus</button>
+                                <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal" data-whatever="@mdo">
+                                    <i class="fas fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach ?>
@@ -87,30 +91,6 @@
 <!-- End Modal -->
 
 <!-- Edit Modal -->
-<div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Content -->
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="#" class="btn btn-success">Hapus</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal -->
-
-
-<!-- Edit Modal -->
 <div class="modal fade" id="tambahmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -125,19 +105,20 @@
                 <form action="/bidan/addpenyuluhan" action="POST">
                     <div class="form-group">
                         <label for="kegiatan" class="col-form-label">Nama kegiatan</label>
-                        <input type="text" class="form-control" name="kegiatan">
+                        <input type="text" id="kegiatan" class="form-control" name="kegiatan">
                     </div>
                     <div class="form-group">
                         <label for="waktu" class="col-form-label">Tanggal Pelaksanaan</label>
-                        <input type="text" class="form-control input-tanggal" name="date">
+                        <input type="text" id="dates" class="form-control input-tanggal" name="date">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
 
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <div><button type="submit" class="btn btn-primary">Submit</button></div>
+                    </div>
                 </form>
+
                 <!-- end content -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -149,12 +130,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="<?= base_url() ?>/vendor/date/dist/js/bootstrap-datepicker.js"></script>
+
 <script>
     $('#example').DataTable();
 </script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.input-tanggal').datepicker();
+<script>
+    $(function() {
+        $("#dates").datepicker({
+            format: 'yyy-mm-dd',
+            autoClose: true,
+            todayHilight: true
+        });
     });
 </script>
 

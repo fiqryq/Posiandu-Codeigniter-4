@@ -14,4 +14,10 @@ class UserModel extends Model
         $query = $this->db->table($this->table)->insert($data);
         return $query;
     }
+
+    public function editData($data)
+    {
+        $query = $this->db->table($this->table)->set($data);
+        return $query;
+    }
 }

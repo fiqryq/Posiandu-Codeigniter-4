@@ -18,7 +18,7 @@ class Bidan extends BaseController
 
     public function index()
     {
-        if (session()->get('level') == null) {
+        if (session()->get('level') != 2) {
             session()->setFlashdata('warning', 'Anda Belum Login !');
             return redirect()->to(base_url('/'));
         }
@@ -65,26 +65,37 @@ class Bidan extends BaseController
 
     public function addpenyuluhan()
     {
-        $title = ['title' => "Penyuluhan"];
-        $idp = "tes";
-        $data = array(
-            'kegiatan' => $this->request->getPost('kegiatan'),
-            'date' => $this->request->getPost('date')
-        );
-        $this->penyuluhanmodel->saveData($data);
+        $oridate = $this->request->getPost('date');
+        $newdate = date("y-m-d", strtotime($oridate));
+        dd($oridate);
+        // $this->penyuluhanmodel->save([
+        //     'kegiatan' => $this->request->getPost('kegiatan'),
+        //     'date' => $newdate
+        // ]);
+        // $this->penyuluhanmodel->save([
+
+        // ]);
+
         session()->setFlashdata('berhasil', 'Berhasil menambahkan data penyuluhan');
-        return view('bidan/index', $title);
+        return redirect()->to('/bidan/index');
     }
 
     public function delete_penyuluhan($id)
     {
-        if (session()->get('level' == 2)) {
-            $this->penyuluhanmodel->delete($id);
-            session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
+        $this->penyuluhanmodel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
 
-            return redirect()->to(base_url('/bidan'));
-        }
+        return redirect()->to(base_url('/bidan'));
     }
+
+    public function delete_artikel($id)
+    {
+        $this->artikelmodel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
+
+        return redirect()->to(base_url('/bidan/artikel'));
+    }
+
 
     public function profile()
     {
