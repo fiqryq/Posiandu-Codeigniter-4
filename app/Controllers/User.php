@@ -34,6 +34,30 @@ class User extends BaseController
         return view('user/profile', $data);
     }
 
+    public function perkembangan()
+    {
+        $data = ['title' => "Perkembangan Anak"];
+        return view('user/perkembangan', $data);
+    }
+
+    public function jadwalimunisasi()
+    {
+        $data = ['title' => "Jadwal Imunisasi"];
+        return view('user/jadwalimunisasi', $data);
+    }
+
+    public function jadwalposyandu()
+    {
+        $data = ['title' => "Jadwal Podyandy"];
+        return view('user/jadwalposyandu', $data);
+    }
+
+    public function penyuluhan()
+    {
+        $data = ['title' => "Penyuluhan"];
+        return view('user/penyuluhan', $data);
+    }
+
     public function edit_profile()
     {
         $data = ['title' => "Edit Profile"];

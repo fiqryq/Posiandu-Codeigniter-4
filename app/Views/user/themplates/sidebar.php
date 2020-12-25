@@ -21,8 +21,39 @@
     <!-- Nav Item -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('user')  ?>">
-            <i class="fas fa-file-alt"></i>
+            <i class="fas fa-book"></i>
             <span>Panduan Posyandu</span></a>
+    </li>
+
+
+    <!-- Nav Item -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/perkembangan')  ?>">
+            <i class="fas fa-seedling"></i>
+            <span>Perkembangan Anak</span></a>
+    </li>
+
+
+    <!-- Nav Item -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/jadwalimunisasi')  ?>">
+            <i class="fas fa-calendar-times"></i>
+            <span>Jadwal Imunisasi</span></a>
+    </li>
+
+
+    <!-- Nav Item -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/jadwalposyandu')  ?>">
+            <i class="fas fa-calendar-times"></i>
+            <span>Jadwal Posyandu</span></a>
+    </li>
+
+    <!-- Nav Item -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/penyuluhan')  ?>">
+            <i class="fas fa-file-alt"></i>
+            <span>Penyuluhan</span></a>
     </li>
 
     <!-- Akhir sidebar gorup admin -->
