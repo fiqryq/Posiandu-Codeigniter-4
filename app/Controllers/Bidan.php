@@ -64,16 +64,13 @@ class Bidan extends BaseController
 
     public function addpenyuluhan()
     {
-        $oridate = $this->request->getPost('date');
-        $newdate = date("y-m-d", strtotime($oridate));
-        dd($oridate);
-        // $this->penyuluhanmodel->save([
-        //     'kegiatan' => $this->request->getPost('kegiatan'),
-        //     'date' => $newdate
-        // ]);
-        // $this->penyuluhanmodel->save([
-
-        // ]);
+        $oridate = $this->request->getVar('date');
+        $newdate = date('y-m-d', strtotime($oridate));
+        // dd($oridate);
+        $this->penyuluhanmodel->save([
+            'kegiatan' => $this->request->getVar('kegiatan'),
+            'date' => $newdate
+        ]);
 
         session()->setFlashdata('berhasil', 'Berhasil menambahkan data penyuluhan');
         return redirect()->to('/bidan/index');

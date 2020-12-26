@@ -7,6 +7,7 @@ use CodeIgniter\Model;
 class ArtikelModel extends Model
 {
     protected $table = 'artikel';
+    protected $primaryKey = 'id';
     protected $allowedFields = ['judul', 'body'];
 
     public function saveArtikel($data)

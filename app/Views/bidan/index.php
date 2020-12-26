@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="<?= base_url() ?>/vendor/date/dist/css/bootstrap-datepicker.css">
+
 
 <!-- content -->
 <div class="container-fluid">
@@ -108,16 +108,19 @@
                         <input type="text" id="kegiatan" class="form-control" name="kegiatan">
                     </div>
                     <div class="form-group">
-                        <label for="waktu" class="col-form-label">Tanggal Pelaksanaan</label>
-                        <input type="text" id="dates" class="form-control input-tanggal" name="date">
+                        <label for="tanggal" class="col-form-label">Tanggal kegiatan</label>
+                        <div class="input-group date" data-provide="datepicker">
+                            <input type="text" class="form-control" name="date">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <div><button type="submit" class="btn btn-primary">Submit</button></div>
                     </div>
                 </form>
-
                 <!-- end content -->
             </div>
         </div>
@@ -135,15 +138,12 @@
 <script>
     $('#example').DataTable();
 </script>
+
 <script>
-    $(function() {
-        $("#dates").datepicker({
-            format: 'yyy-mm-dd',
-            autoClose: true,
-            todayHilight: true
-        });
+    $('.datepicker').datepicker({
+        format: 'yyy/mm/dd',
+        startDate: '-3d'
     });
 </script>
-
 
 <?= $this->endSection(); ?>
