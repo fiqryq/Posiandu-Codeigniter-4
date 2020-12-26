@@ -99,12 +99,6 @@ class Auth extends BaseController
 
     public function register_user()
     {
-        // $this->userModel->save([
-        //     'user_email' => $this->request->getPost('email'),
-        //     'user_name' => $this->request->getPost('username'),
-        //     'user_password' => $this->request->getPost('password')
-        // ]);
-
         $level = 0;
         $data = array(
             'user_email' => $this->request->getPost('email'),
@@ -154,18 +148,30 @@ class Auth extends BaseController
 
     public function edit_users($id)
     {
-        if (session()->get('level') == 1) {
-            $this->userModel->editData([
-                'id' => $id,
-                'user_email' => $this->request->getPost('email'),
-                'user_name' => $this->request->getPost('username'),
-                'user_alamat' => $this->request->getPost('alamat'),
-                'user_nik' => $this->request->getPost('nik'),
-                'user_password' => $this->request->getPost('passowrd')
-            ]);
-            session()->setFlashdata('pesan', 'Data Berhasil Diubah');
-            return redirect()->to(base_url('/admin'));
-        }
+        // $this->userModel->save([
+        //     'id' => $id,
+        //     'user_email' => $this->request->getVar('email'),
+        //     'user_name' => $this->request->getVar('username'),
+        //     'user_password' => $this->request->getVar('password'),
+        //     'user_alamat' => $this->request->getVar('alamat'),
+        //     'user_nik' => $this->request->getVar('nik')
+        // ]);
+
+        $data = array([
+            'id' => $id,
+            'user_email' => $this->request->getVar('email'),
+            'user_name' => $this->request->getVar('username'),
+            'user_password' => $this->request->getVar('password'),
+            'user_alamat' => $this->request->getVar('alamat'),
+            'user_nik' => $this->request->getVar('nik'),
+            'level' => 1
+        ]);
+        // $this->userModel->editData($data);
+        $this->userModel->save($data);
+        // if ($this->userModel->save($data)) {
+        //     session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+        // }
+        return redirect()->to(base_url('/admin'));
     }
 
     public function delete_user($id)

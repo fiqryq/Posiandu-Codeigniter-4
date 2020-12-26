@@ -18,8 +18,6 @@ class ArtikelModel extends Model
     // Get data for table bidan
     public function getArticle()
     {
-        $query = $this->db->table($this->table);
-        $query->where('id_penulis ==', 2);
-        return $query;
+        return $this->where(['id_penulis' => 2])->first();
     }
 }

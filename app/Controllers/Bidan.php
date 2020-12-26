@@ -44,7 +44,6 @@ class Bidan extends BaseController
 
     public function createarticle()
     {
-        $title = ['title' => "tambah kader"];
         $date = date("Y/m/d");
         $penulis = session()->get('user_name');
         $id_penulis = session()->get('id');

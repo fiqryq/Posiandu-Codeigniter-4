@@ -28,6 +28,7 @@
                     <tr>
                         <th>No</th>
                         <th>Judul Artikel</th>
+                        <th>Penulis</th>
                         <th>Tanggal Publikasi</th>
                         <th>Action</th>
                     </tr>
@@ -39,6 +40,7 @@
                         <tr>
                             <td><?= $i++; ?></td>
                             <td><?= $key['judul']; ?></td>
+                            <td><?= $key['penulis']; ?></td>
                             <td><?= $key['created_at']; ?></td>
                             <td>
                                 <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">

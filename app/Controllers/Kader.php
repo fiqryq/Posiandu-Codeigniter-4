@@ -2,8 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 class Kader extends BaseController
 {
+    protected $userModel;
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+    }
+
     public function index()
     {
         if (session()->get('level') != 3) {
@@ -11,7 +19,13 @@ class Kader extends BaseController
             return redirect()->to(base_url('/'));
         }
 
-        $data = ['title' => "Data Kader"];
+        $user = $this->userModel->getKader();
+        // dd($user);
+
+        $data = [
+            'title' => "Data Kader",
+            'user' => $user
+        ];
 
         return view('kader/index', $data);
     }

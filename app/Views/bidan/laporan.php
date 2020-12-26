@@ -10,7 +10,7 @@
         <h1 class="h3 mb-0 text-gray-800"></h1>
         <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-caret-down fa-sm text-white-50">
-            </i>Tambah Penyuluhan</button>
+            </i>Pilih Bulan</button>
 
         <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Januari</a>

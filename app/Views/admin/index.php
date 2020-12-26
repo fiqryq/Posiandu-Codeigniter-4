@@ -38,7 +38,7 @@
                             <td><?= $k['user_name'] ?></td>
                             <td><?= $k['user_email'] ?></td>
                             <td><?= $k['user_nik']; ?></td>
-                            <td><?php if ($lv == 0) {
+                            <td><?php if ($lv == 4) {
                                     echo "orang tua";
                                 } elseif ($lv == 1) {
                                     echo "admin";
@@ -49,14 +49,82 @@
                                 } ?></td>
                             <td><?= $k['user_alamat']; ?></td>
                             <td>
-                                <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">
+                                <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal<?= $id; ?>" data-whatever="@mdo">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal" data-whatever="@mdo">
+                                <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal<?= $id; ?>" data-whatever="@mdo">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>
                         </tr>
+
+                        <!-- Hapus Modal -->
+                        <div class="modal fade" id="hapusmodal<?= $id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Content -->
+                                        <p>apakan anda yakin akan menghapus user <?= $k['user_name']; ?> ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <a href="<?= base_url('auth/delete_user/' . $id); ?>" class="btn btn-danger">Hapus</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal -->
+
+                        <!-- Edit Modal -->
+                        <div class="modal fade" id="editmodal<?= $id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Content -->
+                                        <form action="<?= base_url('auth/edit_users/' . $id); ?>" method="POST">
+                                            <div class="form-group">
+                                                <label for="username">Username</label>
+                                                <input type="text" class="form-control form-control-user" id="username" value="<?= $k['user_name'] ?>" placeholder="Masukan username" name="username" autofocus>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="email" class="form-control form-control-user" id="email" value="<?= $k['user_email'] ?>" placeholder="Masukan Email" name="email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input type="password" class="form-control form-control-user" id="password" value="<?= $k['user_password'] ?>" placeholder="Masukan Password" name="password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="nik">NIK(Nomor induk kependudukan)</label>
+                                                <input type="text" class="form-control form-control-user" id="nik" value="<?= $k['user_nik'] ?>" placeholder="Masukan NIK" name="nik">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="alamat">Alamat</label>
+                                                <input type="text" class="form-control form-control-user" id="alamat" value="<?= $k['user_alamat'] ?>" placeholder="Masukan Alamat" name="alamat">
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button class=" btn btn-success" type="submit">Edit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal -->
                     <?php endforeach ?>
                 </tbody>
             </table>
@@ -65,73 +133,6 @@
     </div>
 </div>
 
-<!-- Hapus Modal -->
-<div class="modal fade" id="hapusmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Content -->
-                <p>apakan anda yakin akan menghapus user?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="<?= base_url('auth/delete_user/' . $id) ?>" class="btn btn-danger">Hapus</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal -->
-
-<!-- Edit Modal -->
-<div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Content -->
-                <form action="<?= base_url('auth/edit_users/' . $id) ?>" method="POST">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control form-control-user" id="username" placeholder="Masukan Username" name="username" autofocus>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control form-control-user" id="email" placeholder="Masukan Email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control form-control-user" id="password" placeholder="Masukan Password" name="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="nik">NIK(Nomor induk kependudukan)</label>
-                        <input type="text" class="form-control form-control-user" id="nik" placeholder="Masukan Nik" name="nik">
-                    </div>
-                    <div class="form-group">
-                        <label for="alamat">Alamat</label>
-                        <input type="text" class="form-control form-control-user" id="alamat" placeholder="Masukan Alamat" name="alamat">
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button class=" btn btn-success">Edit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
