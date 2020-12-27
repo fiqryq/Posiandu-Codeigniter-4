@@ -148,15 +148,7 @@ class Auth extends BaseController
 
     public function edit_users($id)
     {
-        // $this->userModel->save([
-        //     'id' => $id,
-        //     'user_email' => $this->request->getVar('email'),
-        //     'user_name' => $this->request->getVar('username'),
-        //     'user_password' => $this->request->getVar('password'),
-        //     'user_alamat' => $this->request->getVar('alamat'),
-        //     'user_nik' => $this->request->getVar('nik')
-        // ]);
-
+        // Still not working
         $data = array([
             'id' => $id,
             'user_email' => $this->request->getVar('email'),
@@ -166,11 +158,7 @@ class Auth extends BaseController
             'user_nik' => $this->request->getVar('nik'),
             'level' => 1
         ]);
-        // $this->userModel->editData($data);
         $this->userModel->save($data);
-        // if ($this->userModel->save($data)) {
-        //     session()->setFlashdata('pesan', 'Data Berhasil Diubah');
-        // }
         return redirect()->to(base_url('/admin'));
     }
 

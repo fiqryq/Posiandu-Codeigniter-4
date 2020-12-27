@@ -39,13 +39,13 @@
                             <td><?= $k['user_email'] ?></td>
                             <td><?= $k['user_nik']; ?></td>
                             <td><?php if ($lv == 4) {
-                                    echo "orang tua";
+                                    echo "Orang Tua";
                                 } elseif ($lv == 1) {
-                                    echo "admin";
+                                    echo "Admin";
                                 } elseif ($lv == 2) {
-                                    echo "bidan";
+                                    echo "Bidan";
                                 } elseif ($lv == 3) {
-                                    echo "kader";
+                                    echo "Kader";
                                 } ?></td>
                             <td><?= $k['user_alamat']; ?></td>
                             <td>

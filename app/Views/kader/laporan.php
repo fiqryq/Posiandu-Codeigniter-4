@@ -1,10 +1,9 @@
-<?= $this->extend('bidan/themplates/index'); ?>
+<?= $this->extend('kader/themplates/index'); ?>
 <?= $this->section('content'); ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 <!-- content -->
 <div class="container-fluid">
-
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"></h1>
@@ -31,10 +30,10 @@
 
     <div class="card shadow mb-4 mb-6">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-dark">Laporan Bulanan Januari</h6>
+            <h6 class="m-0 font-weight-bold text-dark">Laporan bulanan</h6>
         </div>
         <div class="card-body">
-
+            <!-- start form -->
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>

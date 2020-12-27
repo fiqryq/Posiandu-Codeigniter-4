@@ -34,7 +34,6 @@ class Bidan extends BaseController
     public function artikel()
     {
         $artikeldata = $this->artikelmodel->findAll();
-        // dd($artikeldata);
         $data = [
             'title' => "Artikel",
             'artikel' => $artikeldata
@@ -55,24 +54,22 @@ class Bidan extends BaseController
             'id_penulis' => $id_penulis
         );
         $this->artikelmodel->saveArtikel($data);
-        // dd($data);
-        // Add Flash data session
+
         session()->setFlashdata('berhasil', 'Berhasil Menambahkan Artikel');
-        // return view('bidan/artikel', $title);
         return redirect()->to(base_url('bidan/artikel'));
     }
 
     public function addpenyuluhan()
     {
+        // Convert oridate ('d-m-y')
         $oridate = $this->request->getVar('date');
         $newdate = date('y-m-d', strtotime($oridate));
-        // dd($oridate);
         $this->penyuluhanmodel->save([
             'kegiatan' => $this->request->getVar('kegiatan'),
             'date' => $newdate
         ]);
 
-        session()->setFlashdata('berhasil', 'Berhasil menambahkan data penyuluhan');
+        session()->setFlashdata('berhasil', 'Berhasil membuat penyluhan');
         return redirect()->to('/bidan/index');
     }
 
@@ -88,7 +85,6 @@ class Bidan extends BaseController
     {
         $this->artikelmodel->delete($id);
         session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
-
         return redirect()->to(base_url('/bidan/artikel'));
     }
 

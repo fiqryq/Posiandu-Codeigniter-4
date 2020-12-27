@@ -3,13 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\ArtikelModel;
+use App\Models\PenyuluhanModel;
 
 class User extends BaseController
 {
     protected $artikelmodel;
+    protected $penyuluhanmodel;
+
     public function __construct()
     {
         $this->artikelmodel = new ArtikelModel();
+        $this->penyuluhanmodel = new PenyuluhanModel();
     }
 
     public function index()
@@ -54,7 +58,12 @@ class User extends BaseController
 
     public function penyuluhan()
     {
-        $data = ['title' => "Penyuluhan"];
+        $penyuluhan = $this->penyuluhanmodel->findAll();
+        $data = [
+            'title' => "Penyuluhan",
+            'penyuluhan' => $penyuluhan
+        ];
+
         return view('user/penyuluhan', $data);
     }
 
@@ -62,5 +71,11 @@ class User extends BaseController
     {
         $data = ['title' => "Edit Profile"];
         return view('user/editprofile', $data);
+    }
+
+    public function detail()
+    {
+        $data = ['title' => "Detail Anak"];
+        return view('user/detail', $data);
     }
 }

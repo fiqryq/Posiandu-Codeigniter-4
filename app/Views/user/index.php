@@ -14,7 +14,7 @@
         <?php foreach ($artikel as $key) : ?>
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <a href="#"><img class="card-img-top" src="<?= base_url() ?>/img/artikel.jpg" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#"><?= $key['judul']; ?></a>
@@ -35,7 +35,7 @@
     </div>
 
     <!-- Pagination -->
-    <nav aria-label="...">
+    <!-- <nav aria-label="...">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
                 <a class="page-link active" href="#" tabindex="-1">Previous</a>
@@ -49,7 +49,7 @@
                 <a class="page-link" href="#">Next</a>
             </li>
         </ul>
-    </nav>
+    </nav> -->
 </div>
 
 <!-- end content -->

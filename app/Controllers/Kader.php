@@ -20,7 +20,6 @@ class Kader extends BaseController
         }
 
         $user = $this->userModel->getKader();
-        // dd($user);
 
         $data = [
             'title' => "Data Kader",
