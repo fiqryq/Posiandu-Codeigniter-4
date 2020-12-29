@@ -15,6 +15,15 @@
             <?php } ?>
             <!-- End Flash Data -->
 
+            <!-- Flash Data -->
+            <?php
+            if (!empty(session()->getFlashdata('berhasil'))) { ?>
+                <div class="alert alert-success">
+                    <?php echo session()->getFlashdata('berhasil') ?>
+                </div>
+            <?php } ?>
+            <!-- End Flash Data -->
+
             <!-- start  -->
             <table id="example" class="display" style="width:100%">
                 <thead>
@@ -93,7 +102,8 @@
                                     </div>
                                     <div class="modal-body">
                                         <!-- Content -->
-                                        <form action="<?= base_url('auth/edit_users/' . $id); ?>" method="POST">
+                                        <form action="<?= base_url('/auth/edit_users/' . $id); ?>" method="post">
+                                            <? csrf_field();  ?>
                                             <div class="form-group">
                                                 <label for="username">Username</label>
                                                 <input type="text" class="form-control form-control-user" id="username" value="<?= $k['user_name'] ?>" placeholder="Masukan username" name="username" autofocus>

@@ -155,11 +155,13 @@ class Auth extends BaseController
             'user_name' => $this->request->getVar('username'),
             'user_password' => $this->request->getVar('password'),
             'user_alamat' => $this->request->getVar('alamat'),
-            'user_nik' => $this->request->getVar('nik'),
-            'level' => 1
+            'user_nik' => $this->request->getVar('nik')
         ]);
+        // dd($data);
         $this->userModel->save($data);
-        return redirect()->to(base_url('/admin'));
+        session()->setFlashdata('berhasil', 'Berhasil Mengupdate data');
+
+        // return redirect()->to(base_url('/admin'));
     }
 
     public function delete_user($id)

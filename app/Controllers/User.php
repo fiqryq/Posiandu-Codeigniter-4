@@ -67,6 +67,17 @@ class User extends BaseController
         return view('user/penyuluhan', $data);
     }
 
+    public function detailarticle($id)
+    {
+        $artikel = $this->artikelmodel->getDetail($id);
+        $data = [
+            'title' => "Artikel",
+            'artikel' => $artikel
+        ];
+        // dd($data);
+        return view('user/artikeldetail', $data);
+    }
+
     public function edit_profile()
     {
         $data = ['title' => "Edit Profile"];

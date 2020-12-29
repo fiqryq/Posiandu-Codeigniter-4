@@ -12,12 +12,14 @@
     <!-- Content -->
     <div class="row">
         <?php foreach ($artikel as $key) : ?>
+            <?php $slug = $key['judul'] ?>
+            <?php $id = $key['id'] ?>
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
                     <a href="#"><img class="card-img-top" src="<?= base_url() ?>/img/artikel.jpg" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
-                            <a href="#"><?= $key['judul']; ?></a>
+                            <a href="<?= base_url('user/detailarticle/' . $id); ?>"><?= $key['judul']; ?></a>
                         </h4>
                         <h5><?= $key['penulis']; ?></h5>
                         <p class="card-text">

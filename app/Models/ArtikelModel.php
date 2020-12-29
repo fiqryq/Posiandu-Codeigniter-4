@@ -21,4 +21,10 @@ class ArtikelModel extends Model
     {
         return $this->where(['id_penulis' => 2])->first();
     }
+
+    public function getDetail($id)
+    {
+        $data = $this->db->table($this->table)->getWhere(['id' => $id])->getResultObject();
+        return $data;
+    }
 }
