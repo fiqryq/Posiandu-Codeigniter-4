@@ -21,14 +21,18 @@
                         <h4 class="card-title">
                             <a href="<?= base_url('user/detailarticle/' . $id); ?>"><?= $key['judul']; ?></a>
                         </h4>
-                        <h5><?= $key['penulis']; ?></h5>
-                        <p class="card-text">
+                        <h6 class="text-dark">penulis : <?= $key['penulis']; ?></h6>
+                        <p class="card-text" style="width: 400px;  
+                        white-space: nowrap;     
+                        overflow: hidden;                    
+                        text-overflow: ellipsis;">
                             <?= $key['body']; ?>
                         </p>
                     </div>
+
                     <div class="card-footer">
                         <small class="text-muted">
-                            dibuat pada <?= $key['created_at']; ?>
+                            Di posting pada tanggal <?= $key['created_at']; ?>
                         </small>
                     </div>
                 </div>
