@@ -6,6 +6,7 @@ use App\Models\UserModel;
 
 class Admin extends BaseController
 {
+    // initial __construct untuk user model agar bisa di panggil di function lain | $this->namamodel->fungsiquery/fungsi dari model
     protected $userModel;
     public function __construct()
     {
@@ -15,11 +16,13 @@ class Admin extends BaseController
 
     public function index()
     {
+        // Membatasi agar user harus login dulu untuk masuk dashboard sesuai role.
         if (session()->get('level') != 1) {
             session()->setFlashdata('warning', 'Anda Belum Login !');
             return redirect()->to(base_url('/'));
         }
 
+        // Fungsi menampilkan semua data SELECT * FROM table / fungsi bawaan ci menggunakan findAll()
         $user = $this->userModel->findAll();
         $data = [
             'title' => "admin",

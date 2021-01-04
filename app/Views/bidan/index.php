@@ -20,7 +20,6 @@
             <h6 class="m-0 font-weight-bold text-dark">Penyuluhan</h6>
         </div>
         <div class="card-body">
-
             <!-- Flash Data -->
             <?php
             if (!empty(session()->getFlashdata('pesan'))) { ?>

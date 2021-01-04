@@ -17,9 +17,8 @@ class Auth extends BaseController
 
     public function index()
     {
-        // dd(session()->get('level'));
+        // Membatasi route sesuai role
         if (session() != null) {
-            // Fix this shit
             if (session()->get('level') == 4) {
                 return redirect()->to(base_url('/user'));
             } elseif (session()->get('level') == 1) {
@@ -30,6 +29,7 @@ class Auth extends BaseController
                 return redirect()->to(base_url('/kader'));
             }
         } else {
+            // jika kondisi tidak terpenuhi maka akan redurect ke login view
             return redirect()->to(base_url('auth/login'));
         }
         return view('auth/login');
@@ -40,7 +40,7 @@ class Auth extends BaseController
         return view('auth/register');
     }
 
-
+    // Fungsi Login
     public function login_action()
     {
 
@@ -52,11 +52,12 @@ class Auth extends BaseController
         $cek = $muser->get_data($email, $password);
 
         // User Level
-        // 0 : orang tua
+        // 4 : orang tua
         // 1 : admin
         // 2 : bidan
         // 3 : kader
 
+        // Cek validasi data login untuk masing masing role
         if (($cek['user_email'] == $email) && ($cek['user_password'] == $password)) {
             if ($cek['level'] == 4) {
                 session()->set('user_email', $cek['user_email']);
@@ -97,6 +98,7 @@ class Auth extends BaseController
         }
     }
 
+    // Fungsi save data
     public function register_user()
     {
         $level = 0;
@@ -146,6 +148,7 @@ class Auth extends BaseController
         return redirect()->to(base_url('admin/addbidan'));
     }
 
+    // fungsi edit data (Blm work)
     public function edit_users($id)
     {
         // Still not working
@@ -160,10 +163,11 @@ class Auth extends BaseController
         // dd($data);
         $this->userModel->save($data);
         session()->setFlashdata('berhasil', 'Berhasil Mengupdate data');
-
         // return redirect()->to(base_url('/admin'));
     }
 
+
+    // Fungsi delete data user berdasarkan id user
     public function delete_user($id)
     {
         if (session()->get('level' == 1)) {

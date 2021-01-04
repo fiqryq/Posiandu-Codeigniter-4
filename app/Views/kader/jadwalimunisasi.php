@@ -20,8 +20,7 @@
             <h6 class="m-0 font-weight-bold text-dark">Jadwal Imunisasi</h6>
         </div>
         <div class="card-body">
-            <!-- start form -->
-            <!-- start form -->
+
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>

@@ -65,7 +65,6 @@
                     </div>
                     <!-- End Modal -->
 
-
                     <!-- detail Modal -->
                     <div class="modal fade" id="lihatmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

@@ -14,76 +14,74 @@
         </div>
         <div class="card-body">
             <!-- start form -->
-            <div class="card shadow mb-4">
-                <div class="card-body">
-                    <!-- Flash Data -->
-                    <?php
-                    if (!empty(session()->getFlashdata('pesan'))) { ?>
-                        <div class="alert alert-success">
-                            <?php echo session()->getFlashdata('pesan') ?>
-                        </div>
-                    <?php } ?>
-                    <!-- End Flash Data -->
 
-                    <!-- start  -->
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>NIK</th>
-                                <th>Nama Kader</th>
-                                <th>Alamat</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($user as $k => $value) : ?>
-                                <?php $i = 1 ?>
-                                <?php $id = $value->id; ?>
-                                <tr>
-                                    <td><?= $i++; ?></td>
-                                    <td><?= $value->user_nik; ?></td>
-                                    <td><?= $value->user_name; ?></td>
-                                    <td><?= $value->user_alamat; ?></td>
-                                    <td>
-                                        <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal<?= $id; ?>" data-whatever="@mdo">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+            <!-- Flash Data -->
+            <?php
+            if (!empty(session()->getFlashdata('pesan'))) { ?>
+                <div class="alert alert-success">
+                    <?php echo session()->getFlashdata('pesan') ?>
+                </div>
+            <?php } ?>
+            <!-- End Flash Data -->
 
-                                <!-- Hapus Modal -->
-                                <div class="modal fade" id="hapusmodal<?= $id; ?>" tabindex=" -1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <!-- Content -->
-                                                <p>apakan anda yakin akan menghapus kader <?= $value->user_name; ?> ?</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <a href="<?= base_url('bidan/delete_penyuluhan/' . $id) ?>" class="btn btn-danger">Hapus</a>
-                                            </div>
-                                        </div>
+            <!-- start  -->
+            <table id="example" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>NIK</th>
+                        <th>Nama Kader</th>
+                        <th>Alamat</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fetch data menggunakan json object
+                  passing key lalu masukan ke $value,
+                  ambil $value->keydatabase -->
+                    <?php foreach ($user as $k => $value) : ?>
+                        <?php $i = 1 ?>
+                        <?php $id = $value->id; ?>
+                        <tr>
+                            <td><?= $i++; ?></td>
+                            <td><?= $value->user_nik; ?></td>
+                            <td><?= $value->user_name; ?></td>
+                            <td><?= $value->user_alamat; ?></td>
+                            <td>
+                                <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal<?= $id; ?>" data-whatever="@mdo">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- Hapus Modal -->
+                        <div class="modal fade" id="hapusmodal<?= $id; ?>" tabindex=" -1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Content -->
+                                        <p>apakan anda yakin akan menghapus kader <?= $value->user_name; ?> ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <a href="<?= base_url('bidan/delete_penyuluhan/' . $id) ?>" class="btn btn-danger">Hapus</a>
                                     </div>
                                 </div>
-                                <!-- End Modal -->
-
-                            <?php endforeach ?>
-                        </tbody>
-                    </table>
-                    <!-- end  -->
-                </div>
-            </div>
+                            </div>
+                        </div>
+                        <!-- End Modal -->
+                    <?php endforeach ?>
+                </tbody>
+            </table>
             <!-- end form -->
         </div>
     </div>
