@@ -85,12 +85,17 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <!-- Content -->
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <a href="#" class="btn btn-success">Hapus</a>
+                                        <form action="<?= base_url('/bidan/editarticle/' . $id); ?>" method="POST">
+                                            <div class="form-group">
+                                                <label for="Judul Artikel">Judul Artikel</label>
+                                                <input name="judul" type="text" class="form-control" id="judul" autofocus placeholder="masukan judul artikel" value="<?= $key['judul']; ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="isiartikel">Artikel</label>
+                                                <textarea name="isiartikel" class="form-control" id="isiartikel" rows="3" placeholder="masukan isi artikel" value></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-secondary btn-block">Edit Article</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

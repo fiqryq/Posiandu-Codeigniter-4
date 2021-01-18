@@ -163,7 +163,7 @@ class Auth extends BaseController
         // dd($data);
         $this->userModel->save($data);
         session()->setFlashdata('berhasil', 'Berhasil Mengupdate data');
-        // return redirect()->to(base_url('/admin'));
+        return redirect()->to(base_url('/admin'));
     }
 
 

@@ -124,7 +124,6 @@
                                                 <label for="alamat">Alamat</label>
                                                 <input type="text" class="form-control form-control-user" id="alamat" value="<?= $k['user_alamat'] ?>" placeholder="Masukan Alamat" name="alamat">
                                             </div>
-
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                 <button class=" btn btn-success" type="submit">Edit</button>

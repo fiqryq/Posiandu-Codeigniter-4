@@ -59,6 +59,26 @@ class Bidan extends BaseController
         return redirect()->to(base_url('bidan/artikel'));
     }
 
+    public function editarticle($id)
+    {
+        $date = date("Y/m/d");
+        $penulis = session()->get('user_name');
+        $id_penulis = session()->get('id');
+
+        $data = array(
+            'id' => $id,
+            'judul' => $this->request->getPost('judul'),
+            'body' => $this->request->getPost('isiartikel'),
+            'penulis' => $penulis,
+            'created_at' => $date,
+            'id_penulis' => $id_penulis
+        );
+        $this->artikelmodel->save($data);
+
+        session()->setFlashdata('berhasil', 'Berhasil Mengubah Artikel');
+        return redirect()->to(base_url('bidan/artikel'));
+    }
+
     public function addpenyuluhan()
     {
         // Convert oridate ('d-m-y')

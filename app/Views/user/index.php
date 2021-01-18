@@ -22,7 +22,7 @@
                             <a href="<?= base_url('user/detailarticle/' . $id); ?>"><?= $key['judul']; ?></a>
                         </h4>
                         <h6 class="text-dark">penulis : <?= $key['penulis']; ?></h6>
-                        <p class="card-text" style="width: 400px;  
+                        <p class="card-text" style="width: 250px;  
                         white-space: nowrap;     
                         overflow: hidden;                    
                         text-overflow: ellipsis;">

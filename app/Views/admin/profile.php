@@ -29,7 +29,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <button class="btn btn-primary btn-block">Edit profile</button>
+                            <a class="btn btn-primary btn-block" href="<?= base_url('admin/edit_profile') ?>">Edit profile</a>
                         </td>
                     </tr>
                 </tbody>
