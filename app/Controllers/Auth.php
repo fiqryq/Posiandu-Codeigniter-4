@@ -152,14 +152,14 @@ class Auth extends BaseController
     public function edit_users($id)
     {
         // Still not working
-        $data = array([
+        $data = array(
             'id' => $id,
             'user_email' => $this->request->getVar('email'),
             'user_name' => $this->request->getVar('username'),
             'user_password' => $this->request->getVar('password'),
             'user_alamat' => $this->request->getVar('alamat'),
             'user_nik' => $this->request->getVar('nik')
-        ]);
+        );
         // dd($data);
         $this->userModel->save($data);
         session()->setFlashdata('berhasil', 'Berhasil Mengupdate data');
