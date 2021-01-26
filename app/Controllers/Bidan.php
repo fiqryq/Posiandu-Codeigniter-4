@@ -75,7 +75,7 @@ class Bidan extends BaseController
         );
         $this->artikelmodel->save($data);
 
-        session()->setFlashdata('berhasil', 'Berhasil Mengubah Artikel');
+        session()->setFlashdata('update', 'Berhasil Mengupdate Artikel');
         return redirect()->to(base_url('bidan/artikel'));
     }
 
@@ -84,10 +84,28 @@ class Bidan extends BaseController
         // Convert oridate ('d-m-y')
         $oridate = $this->request->getVar('date');
         $newdate = date('y-m-d', strtotime($oridate));
-        $this->penyuluhanmodel->save([
+        $data = array(
             'kegiatan' => $this->request->getVar('kegiatan'),
             'date' => $newdate
-        ]);
+        );
+        $this->penyuluhanmodel->save($data);
+
+        session()->setFlashdata('update', 'Berhasil mengupdate penyluhan');
+        return redirect()->to('/bidan/index');
+    }
+
+
+    public function editpenyuluhan($id)
+    {
+        // Convert oridate ('d-m-y')
+        $oridate = $this->request->getVar('date');
+        $newdate = date('y-m-d', strtotime($oridate));
+        $data = array(
+            'id' => $id,
+            'kegiatan' => $this->request->getVar('kegiatan'),
+            'date' => $newdate
+        );
+        $this->penyuluhanmodel->save($data);
 
         session()->setFlashdata('berhasil', 'Berhasil membuat penyluhan');
         return redirect()->to('/bidan/index');

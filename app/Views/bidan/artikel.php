@@ -22,6 +22,15 @@
             <?php } ?>
             <!-- End Flash Data -->
 
+            <!-- Flash Data -->
+            <?php
+            if (!empty(session()->getFlashdata('update'))) { ?>
+                <div class="alert alert-success">
+                    <?php echo session()->getFlashdata('update') ?>
+                </div>
+            <?php } ?>
+            <!-- End Flash Data -->
+
             <!-- start  -->
             <table id="example" class="display" style="width:100%">
                 <thead>
@@ -76,7 +85,7 @@
 
                         <!-- Edit Modal -->
                         <div class="modal fade" id="editmodal<?= $id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
@@ -92,9 +101,9 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="isiartikel">Artikel</label>
-                                                <textarea name="isiartikel" class="form-control" id="isiartikel" rows="3" placeholder="masukan isi artikel" value></textarea>
+                                                <textarea name="isiartikel" class="form-control" id="isiartikel" rows="3" placeholder="masukan isi artikel"><?= $key['body']; ?></textarea>
                                             </div>
-                                            <button type="submit" class="btn btn-secondary btn-block">Edit Article</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Edit Article</button>
                                         </form>
                                     </div>
                                 </div>
@@ -112,6 +121,7 @@
             <h6 class="m-0 font-weight-bold text-dark">Buat Artikel</h6>
         </div>
         <div class="card-body">
+
             <!-- Flash Data -->
             <?php
             if (!empty(session()->getFlashdata('berhasil'))) { ?>
@@ -129,7 +139,7 @@
                 </div>
                 <div class="form-group">
                     <label for="isiartikel">Artikel</label>
-                    <textarea name="isiartikel" class="form-control" id="isiartikel" rows="3" placeholder="masukan isi artikel"></textarea>
+                    <textarea name="isiartikel" class="form-control" id="isiartikel" rows="5" placeholder="masukan isi artikel"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Submit Artikel</button>
             </form>

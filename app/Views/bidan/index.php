@@ -38,6 +38,15 @@
             <?php } ?>
             <!-- End Flash Data -->
 
+            <!-- Flash Data -->
+            <?php
+            if (!empty(session()->getFlashdata('update'))) { ?>
+                <div class="alert alert-success">
+                    <?php echo session()->getFlashdata('update') ?>
+                </div>
+            <?php } ?>
+            <!-- End Flash Data -->
+
             <!-- start  -->
             <table id="example" class="display" style="width:100%">
                 <thead>
@@ -67,6 +76,7 @@
                                 </a>
                             </td>
                         </tr>
+
                         <!-- Hapus Modal -->
                         <div class="modal fade" id="hapusmodal<?= $id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -90,7 +100,46 @@
                         </div>
                         <!-- End Modal -->
 
+
                         <!-- Edit Modal -->
+                        <div class="modal fade" id="editmodal<?= $id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Penyuluhan</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Content -->
+                                        <form action="<?= base_url('/bidan/editpenyuluhan/' . $id); ?>" action="POST">
+                                            <div class="form-group">
+                                                <label for="kegiatan" class="col-form-label">Nama kegiatan</label>
+                                                <input type="text" id="kegiatan" class="form-control" name="kegiatan" value="<?= $k['kegiatan']; ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tanggal" class="col-form-label">Tanggal kegiatan</label>
+                                                <div class="input-group date" data-provide="datepicker">
+                                                    <input type="text" class="form-control" name="date">
+                                                    <div class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-th"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <div><button type="submit" class="btn btn-primary">Submit</button></div>
+                                            </div>
+                                        </form>
+                                        <!-- end content -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal -->
+
+                        <!-- Tambah Modal -->
                         <div class="modal fade" id="tambahmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
