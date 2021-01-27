@@ -148,10 +148,8 @@ class Auth extends BaseController
         return redirect()->to(base_url('admin/addbidan'));
     }
 
-    // fungsi edit data (Blm work)
     public function edit_users($id)
     {
-        // Still not working
         $data = array(
             'id' => $id,
             'user_email' => $this->request->getVar('email'),
@@ -165,7 +163,6 @@ class Auth extends BaseController
         session()->setFlashdata('berhasil', 'Berhasil Mengupdate data');
         return redirect()->to(base_url('/admin'));
     }
-
 
     // Fungsi delete data user berdasarkan id user
     public function delete_user($id)

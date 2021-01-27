@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\ArtikelModel;
 use App\Models\PenyuluhanModel;
+use App\Models\UserModel;
+
 
 class Bidan extends BaseController
 {
@@ -14,6 +16,7 @@ class Bidan extends BaseController
     {
         $this->artikelmodel = new ArtikelModel();
         $this->penyuluhanmodel = new PenyuluhanModel();
+        $this->userModel = new UserModel();
     }
 
     public function index()
@@ -133,10 +136,26 @@ class Bidan extends BaseController
         return view('bidan/profile', $data);
     }
 
-    public function edit_profile()
+    public function edit_Profile()
     {
         $data = ['title' => "Edit Profile"];
         return view('bidan/editprofile', $data);
+    }
+
+    public function editProfile($id)
+    {
+        $data = array(
+            'id' => $id,
+            'user_email' => $this->request->getVar('email'),
+            'user_name' => $this->request->getVar('username'),
+            'user_password' => $this->request->getVar('password'),
+            'user_alamat' => $this->request->getVar('alamat'),
+            'user_nik' => $this->request->getVar('nik')
+        );
+        // dd($data);
+        $this->userModel->save($data);
+        session()->setFlashdata('berhasil', 'Berhasil mengubah profile , untuk melihat perubahan harap logout terlebih dahulu. ');
+        return redirect()->to(base_url('bidan/edit_Profile'));
     }
 
     public function laporan()
