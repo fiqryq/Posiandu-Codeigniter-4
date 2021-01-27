@@ -29,7 +29,6 @@
                     <label for="alamat">Alamat</label>
                     <input type="text" disabled class="form-control form-control-user" id="alamat" value="<?php echo session()->get('user_alamat'); ?>" name="alamat">
                 </div>
-
                 <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </form>
             <!-- end form -->

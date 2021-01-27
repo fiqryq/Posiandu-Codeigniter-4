@@ -70,14 +70,14 @@
 
     <!-- Nav Item - My profile -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('user/profile') ?>">
+        <a class="nav-link" href="<?= base_url('kader/profile') ?>">
             <i class="fas fa-user"></i>
             <span>Profile</span></a>
     </li>
 
     <!-- Nav Item - Edit profile -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('user/edit_profile') ?>">
+        <a class="nav-link" href="<?= base_url('kader/edit_profile') ?>">
             <i class="fas fa-user-edit"></i>
             <span>Edit Profile</span></a>
     </li>

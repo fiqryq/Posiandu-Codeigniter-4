@@ -64,6 +64,28 @@ class Kader extends BaseController
         return view('kader/laporan', $data);
     }
 
+    public function edit_profile()
+    {
+        $data = ['title' => "Edit Profile"];
+        return view('kader/editprofile', $data);
+    }
+
+    public function editProfile($id)
+    {
+        $data = array(
+            'id' => $id,
+            'user_email' => $this->request->getVar('email'),
+            'user_name' => $this->request->getVar('username'),
+            'user_password' => $this->request->getVar('password'),
+            'user_alamat' => $this->request->getVar('alamat'),
+            'user_nik' => $this->request->getVar('nik')
+        );
+        // dd($data);
+        $this->userModel->save($data);
+        session()->setFlashdata('berhasil', 'Berhasil mengubah profile , untuk melihat perubahan harap logout terlebih dahulu. ');
+        return redirect()->to(base_url('kader/edit_Profile'));
+    }
+
     //--------------------------------------------------------------------
 
 }
