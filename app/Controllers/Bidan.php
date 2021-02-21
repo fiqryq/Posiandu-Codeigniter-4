@@ -129,7 +129,7 @@ class Bidan extends BaseController
         return redirect()->to(base_url('/bidan/artikel'));
     }
 
-
+    
     public function profile()
     {
         $data = ['title' => "Profile"];
@@ -152,7 +152,6 @@ class Bidan extends BaseController
             'user_alamat' => $this->request->getVar('alamat'),
             'user_nik' => $this->request->getVar('nik')
         );
-        // dd($data);
         $this->userModel->save($data);
         session()->setFlashdata('berhasil', 'Berhasil mengubah profile , untuk melihat perubahan harap logout terlebih dahulu. ');
         return redirect()->to(base_url('bidan/edit_Profile'));

@@ -16,7 +16,9 @@ class Auth extends BaseController
     }
 
     public function index()
-    {
+    {   
+        $data = ['title' => "Login"];
+
         // Membatasi route sesuai role
         if (session() != null) {
             if (session()->get('level') == 4) {
@@ -32,12 +34,17 @@ class Auth extends BaseController
             // jika kondisi tidak terpenuhi maka akan redurect ke login view
             return redirect()->to(base_url('auth/login'));
         }
-        return view('auth/login');
+        return view('auth/login',$data);
     }
 
     public function register()
     {
-        return view('auth/register');
+        session();
+        $data = [
+            'title' => "Register",
+            'validation' => \Config\Services::Validation()
+        ];
+        return view('auth/register',$data);
     }
 
     // Fungsi Login
@@ -98,10 +105,45 @@ class Auth extends BaseController
         }
     }
 
-    // Fungsi save data
+
     public function register_user()
     {
-        $level = 0;
+
+        // Form validation
+        if (!$this->validate([
+            'username' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus di isi.'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => '{field} harus di isi.',
+                    'valid_email' => 'masukan {field} yang valid.'
+                ]
+            ],
+            'nik' => [
+                'rules' => 'required|max_length[16]|numeric',
+                'errors' => [
+                    'required' => '{field} harus di isi.',
+                    'max_length' => 'masukan {field} valid.',
+                    'numeric' => '{field} hanya berisi angka'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus di isi.'
+                ]
+            ],
+        ])) {
+
+            return redirect()->to('register')->withInput();
+        }
+
+        $level = 4;
         $data = array(
             'user_email' => $this->request->getPost('email'),
             'user_name' => $this->request->getPost('username'),
@@ -115,39 +157,6 @@ class Auth extends BaseController
         return redirect()->to('/');
     }
 
-
-    public function register_kader()
-    {
-        $level = 3;
-        $data = array(
-            'user_email' => $this->request->getPost('email'),
-            'user_name' => $this->request->getPost('username'),
-            'user_password' => $this->request->getPost('password'),
-            'user_nik' => $this->request->getPost('nik'),
-            'user_alamat' => $this->request->getPost('alamat'),
-            'level' => $level,
-        );
-        $this->userModel->saveData($data);
-        session()->setFlashdata('berhasil', 'Berhasil Menambahkan Kader');
-        return redirect()->to(base_url('admin/addkader'));
-    }
-
-    public function register_bidan()
-    {
-        $level = 2;
-        $data = array(
-            'user_email' => $this->request->getPost('email'),
-            'user_name' => $this->request->getPost('username'),
-            'user_password' => $this->request->getPost('password'),
-            'user_nik' => $this->request->getPost('nik'),
-            'user_alamat' => $this->request->getPost('alamat'),
-            'level' => $level,
-        );
-        $this->userModel->saveData($data);
-        session()->setFlashdata('berhasil', 'Berhasil Menambahkan Bidan');
-        return redirect()->to(base_url('admin/addbidan'));
-    }
-
     public function edit_users($id)
     {
         $data = array(
@@ -158,7 +167,7 @@ class Auth extends BaseController
             'user_alamat' => $this->request->getVar('alamat'),
             'user_nik' => $this->request->getVar('nik')
         );
-        // dd($data);
+
         $this->userModel->save($data);
         session()->setFlashdata('berhasil', 'Berhasil Mengupdate data');
         return redirect()->to(base_url('/admin'));

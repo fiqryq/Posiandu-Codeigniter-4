@@ -59,7 +59,7 @@
                                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                                 </div> -->
                                 <div class="text-center">
-                                    <a class="small" href="<?= base_url('home/register')  ?>">Buat Akun</a>
+                                    <a class="small" href="<?= base_url('auth/register')  ?>">Buat Akun</a>
                                 </div>
                             </div>
                         </div>
