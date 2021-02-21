@@ -132,7 +132,7 @@
             <!-- End Flash Data -->
 
             <!-- start form -->
-            <form action="/bidan/createarticle" method="POST">
+            <form action="<?= base_url('bidan/createarticle'); ?>" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="Judul Artikel">Judul Artikel</label>
                     <input name="judul" type="text" class="form-control" id="judul" autofocus placeholder="masukan judul artikel">
@@ -140,6 +140,12 @@
                 <div class="form-group">
                     <label for="isiartikel">Artikel</label>
                     <textarea name="isiartikel" class="form-control" id="isiartikel" rows="5" placeholder="masukan isi artikel"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                        <label class="custom-file-label" for="gambar">Pilih Gambar</label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Submit Artikel</button>
             </form>

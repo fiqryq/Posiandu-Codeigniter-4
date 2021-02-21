@@ -8,7 +8,7 @@ class ArtikelModel extends Model
 {
     protected $table = 'artikel';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['judul', 'body'];
+    protected $allowedFields = ['judul', 'body' , 'gambar'];
 
     public function saveArtikel($data)
     {

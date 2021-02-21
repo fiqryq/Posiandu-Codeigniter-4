@@ -46,15 +46,23 @@ class Bidan extends BaseController
 
     public function createarticle()
     {
+        
+        // Store Data ke database
+        $gambar = $this->request->getFile('gambar');
+        $gambar->move('img');
+        $filegambar = $gambar->getName();
+        
         $date = date("Y/m/d");
         $penulis = session()->get('user_name');
         $id_penulis = session()->get('id');
+
         $data = array(
             'judul' => $this->request->getPost('judul'),
             'body' => $this->request->getPost('isiartikel'),
             'penulis' => $penulis,
             'created_at' => $date,
-            'id_penulis' => $id_penulis
+            'id_penulis' => $id_penulis,
+            'gambar' => $filegambar
         );
         $this->artikelmodel->saveArtikel($data);
 
@@ -129,7 +137,7 @@ class Bidan extends BaseController
         return redirect()->to(base_url('/bidan/artikel'));
     }
 
-    
+
     public function profile()
     {
         $data = ['title' => "Profile"];
