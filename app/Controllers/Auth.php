@@ -125,10 +125,11 @@ class Auth extends BaseController
                 ]
             ],
             'nik' => [
-                'rules' => 'required|max_length[16]|numeric',
+                'rules' => 'required|max_length[16]|numeric|min_length[15]',
                 'errors' => [
                     'required' => '{field} harus di isi.',
                     'max_length' => 'masukan {field} valid.',
+                    'min_length' => '{field} harus terdiri dari 16 angka',
                     'numeric' => '{field} hanya berisi angka'
                 ]
             ],

@@ -135,11 +135,17 @@
             <form action="<?= base_url('bidan/createarticle'); ?>" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="Judul Artikel">Judul Artikel</label>
-                    <input name="judul" type="text" class="form-control" id="judul" autofocus placeholder="masukan judul artikel">
+                    <input name="judul" type="text" class="form-control <?= ($validation->hasError('judul') ? 'is-invalid' : ''); ?>" id="judul" autofocus placeholder="masukan judul artikel" value="<?= old('judul'); ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('judul'); ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="isiartikel">Artikel</label>
-                    <textarea name="isiartikel" class="form-control" id="isiartikel" rows="5" placeholder="masukan isi artikel"></textarea>
+                    <textarea name="isiartikel" class="form-control <?= ($validation->hasError('isiartikel') ? 'is-invalid' : ''); ?>" id="isiartikel" rows="5" placeholder="masukan isi artikel" value="<?= old('isiartikel'); ?>"></textarea>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('isiartikel'); ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="custom-file">

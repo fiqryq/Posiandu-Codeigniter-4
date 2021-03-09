@@ -36,16 +36,35 @@ class Bidan extends BaseController
 
     public function artikel()
     {
+        session();
         $artikeldata = $this->artikelmodel->findAll();
         $data = [
             'title' => "Artikel",
-            'artikel' => $artikeldata
+            'artikel' => $artikeldata,
+            'validation' => \Config\Services::Validation()
         ];
         return view('bidan/artikel', $data);
     }
 
     public function createarticle()
     {
+        
+        if (!$this->validate([
+            'judul' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Judul harus di isi.'
+                ]
+            ],
+            'isiartikel' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Artikel harus di isi.',
+                ]
+            ]
+        ])) {
+            return redirect()->to('artikel')->withInput();
+        }
         
         // Store Data ke database
         $gambar = $this->request->getFile('gambar');
