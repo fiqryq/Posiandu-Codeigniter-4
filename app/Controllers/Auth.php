@@ -133,6 +133,15 @@ class Auth extends BaseController
                     'numeric' => '{field} hanya berisi angka'
                 ]
             ],
+            'kk' => [
+                'rules' => 'required|max_length[16]|numeric|min_length[15]',
+                'errors' => [
+                    'required' => '{field} harus di isi.',
+                    'max_length' => 'masukan {field} valid.',
+                    'min_length' => '{field} harus terdiri dari 16 angka',
+                    'numeric' => '{field} hanya berisi angka',
+                ]
+            ],
             'alamat' => [
                 'rules' => 'required',
                 'errors' => [
@@ -150,6 +159,7 @@ class Auth extends BaseController
             'user_name' => $this->request->getPost('username'),
             'user_password' => $this->request->getPost('password'),
             'user_nik' => $this->request->getPost('nik'),
+            'user_kk' => $this->request->getPost('kk'),
             'user_alamat' => $this->request->getPost('alamat'),
             'level' => $level,
         );

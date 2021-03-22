@@ -23,7 +23,7 @@
                 <hr>
 
                 <!-- Preview Image -->
-                <img class="card-img-top" src="<?= base_url() ?>/img/artikel.jpg" alt="">
+                <img class="card-img-top" src="<?= base_url() ?>/img/<?= $row->gambar; ?>" alt="Artikel header image" width="100%" height="500px">
 
                 <hr>
 

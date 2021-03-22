@@ -40,14 +40,18 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <input type="text" class="form-control form-control-user <?= ($validation->hasError('kk') ? 'is-invalid' : ''); ?>" id="kk" placeholder="Masukan Nomor KK" name="kk" value="<?= old('kk'); ?>">
+                                        <div class="invalid-feedback ml-2">
+                                            <?= $validation->getError('kk'); ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <input type="text" class="form-control form-control-user <?= ($validation->hasError('alamat') ? 'is-invalid' : ''); ?>" id="alamat" placeholder="Masukan Alamat" name="alamat" value="<?= old('alamat'); ?>">
                                         <div class="invalid-feedback ml-2">
                                             <?= $validation->getError('alamat'); ?>
                                         </div>
                                     </div>
-
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Register Account</button>
-
                                 </form>
                                 <!-- End Form -->
                                 <hr>
