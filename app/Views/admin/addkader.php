@@ -47,6 +47,13 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="kk">KK(Nomor Kartu Keluarga)</label>
+                    <input type="text" class="form-control form-control-user <?= ($validation->hasError('kk') ? 'is-invalid' : ''); ?>" id="kk" placeholder="Masukan KK" name="kk" value="<?= old('kk'); ?>">
+                    <div class="invalid-feedback ml-2">
+                        <?= $validation->getError('kk'); ?>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="alamat">Alamat</label>
                     <input type="text" class="form-control form-control-user <?= ($validation->hasError('alamat') ? 'is-invalid' : ''); ?>" id="alamat" placeholder="Masukan Alamat" name="alamat" value="<?= old('alamat'); ?>">
                     <div class="invalid-feedback ml-2">

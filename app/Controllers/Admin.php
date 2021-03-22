@@ -81,11 +81,21 @@ class Admin extends BaseController
                     ]
                 ],
                 'nik' => [
-                    'rules' => 'required|max_length[16]|numeric',
+                    'rules' => 'required|max_length[16]|numeric|min_length[15]',
                     'errors' => [
                         'required' => '{field} harus di isi.',
                         'max_length' => 'masukan {field} valid.',
-                        'numeric' => '{field} hanya berisi angka'
+                        'numeric' => '{field} hanya berisi angka',
+                        'min_length' => 'masukan {field} valid'
+                    ]
+                ],
+                'kk' => [
+                    'rules' => 'required|max_length[16]|numeric|min_length[15]',
+                    'errors' => [
+                        'required' => '{field} harus di isi.',
+                        'max_length' => 'masukan {field} valid.',
+                        'numeric' => '{field} hanya berisi angka',
+                        'min_length' => 'masukan {field} valid'
                     ]
                 ],
                 'alamat' => [
@@ -105,6 +115,7 @@ class Admin extends BaseController
             'user_name' => $this->request->getPost('username'),
             'user_password' => $this->request->getPost('password'),
             'user_nik' => $this->request->getPost('nik'),
+            'user_kk' => $this->request->getPost('kk'),
             'user_alamat' => $this->request->getPost('alamat'),
             'level' => $level,
         );
@@ -131,11 +142,21 @@ class Admin extends BaseController
                 ]
             ],
             'nik' => [
-                'rules' => 'required|max_length[16]|numeric',
+                'rules' => 'required|max_length[16]|numeric||min_length[15]',
                 'errors' => [
                     'required' => '{field} harus di isi.',
                     'max_length' => 'masukan {field} valid.',
-                    'numeric' => '{field} hanya berisi angka'
+                    'numeric' => '{field} hanya berisi angka',
+                    'min_length' => 'masukan {field} valid'
+                ]
+            ],
+            'kk' => [
+                'rules' => 'required|max_length[16]|numeric|min_length[15]',
+                'errors' => [
+                    'required' => '{field} harus di isi.',
+                    'max_length' => 'masukan {field} valid.',
+                    'numeric' => '{field} hanya berisi angka',
+                    'min_length' => 'masukan {field} valid'
                 ]
             ],
             'alamat' => [
@@ -155,6 +176,7 @@ class Admin extends BaseController
             'user_name' => $this->request->getPost('username'),
             'user_password' => $this->request->getPost('password'),
             'user_nik' => $this->request->getPost('nik'),
+            'user_kk' => $this->request->getPost('kk'),
             'user_alamat' => $this->request->getPost('alamat'),
             'level' => $level,
         );
