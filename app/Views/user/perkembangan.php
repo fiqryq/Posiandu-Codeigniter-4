@@ -15,7 +15,7 @@
                         <th>No</th>
                         <th>Nama Anak</th>
                         <th>Berat Badan</th>
-                        <th>Tanggal Lahir</th>
+                        <th>Umur Anak</th>
                         <th>Tinggi Badan</th>
                         <th>Jenis Kelamin</th>
                         <th>Lingkar Kepala</th>
@@ -23,20 +23,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Zhafran Alby</td>
-                        <td>6 Kg</td>
-                        <td>01 Juni 2020</td>
-                        <td>74 cm</td>
-                        <td>Laki Laki</td>
-                        <td>25 cm</td>
-                        <td>
-                            <a href="<?= base_url('user/detail'); ?>" class="btn btn-primary btn-circle">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    <?php
+                    $no = 1;
+                    foreach ($anak as $data) :
+                        $id = $data['id'];
+                    ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= $data['nama_anak'] ?></td>
+                            <td><?= $data['berat_anak'] ?> Kg</td>
+                            <td><?= $data['umur_anak'] ?></td>
+                            <td><?= $data['tinggi_anak'] ?> cm</td>
+                            <td><?= $data['jenis_kelamin'] ?></td>
+                            <td><?= $data['lingkar_kepala'] ?> cm</td>
+                            <td>
+                                <a href="<?= base_url('user/detail/' . $id); ?>" class="btn btn-primary btn-circle">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
             <!-- end form -->

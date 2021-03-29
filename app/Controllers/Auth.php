@@ -16,7 +16,7 @@ class Auth extends BaseController
     }
 
     public function index()
-    {   
+    {
         $data = ['title' => "Login"];
 
         // Membatasi route sesuai role
@@ -34,7 +34,7 @@ class Auth extends BaseController
             // jika kondisi tidak terpenuhi maka akan redurect ke login view
             return redirect()->to(base_url('auth/login'));
         }
-        return view('auth/login',$data);
+        return view('auth/login', $data);
     }
 
     public function register()
@@ -44,7 +44,7 @@ class Auth extends BaseController
             'title' => "Register",
             'validation' => \Config\Services::Validation()
         ];
-        return view('auth/register',$data);
+        return view('auth/register', $data);
     }
 
     // Fungsi Login
@@ -73,6 +73,7 @@ class Auth extends BaseController
                 session()->set('level', $cek['level']);
                 session()->set('user_alamat', $cek['user_alamat']);
                 session()->set('user_nik', $cek['user_nik']);
+                session()->set('user_kk', $cek['user_kk']);
                 return redirect()->to(base_url('user'));
             } else if ($cek['level'] == 1) {
                 session()->set('user_email', $cek['user_email']);

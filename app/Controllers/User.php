@@ -4,16 +4,19 @@ namespace App\Controllers;
 
 use App\Models\ArtikelModel;
 use App\Models\PenyuluhanModel;
+use App\Models\AnakModel;
 
 class User extends BaseController
 {
     protected $artikelmodel;
     protected $penyuluhanmodel;
+    protected $anakmodel;
 
     public function __construct()
     {
         $this->artikelmodel = new ArtikelModel();
         $this->penyuluhanmodel = new PenyuluhanModel();
+        $this->anakmodel = new AnakModel();
     }
 
     public function index()
@@ -40,7 +43,12 @@ class User extends BaseController
 
     public function perkembangan()
     {
-        $data = ['title' => "Perkembangan Anak"];
+        $kk = session()->get('user_kk');
+        $anak = $this->anakmodel->where('no_kk', $kk)->findAll();
+        $data = [
+            'title' => "Perkembangan Anak",
+            'anak' => $anak
+        ];
         return view('user/perkembangan', $data);
     }
 
