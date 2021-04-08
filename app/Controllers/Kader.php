@@ -38,7 +38,12 @@ class Kader extends BaseController
 
     public function dataorangtua()
     {
-        $data = ['title' => "Data Orangtua"];
+        $user = $this->userModel->getOrangtua();
+
+        $data = [
+            'title' => "Data Orangtua",
+            'user' => $user
+        ];
 
         return view('kader/orangtua', $data);
     }

@@ -54,66 +54,6 @@
                             </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>123123123</td>
-                        <td>Rini Maryani</td>
-                        <td>123123123</td>
-                        <td>M Ridwan</td>
-                        <td>
-                            <a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#detail" data-whatever="@mdo">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal" data-whatever="@mdo">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>123123123</td>
-                        <td>Rini Maryani</td>
-                        <td>123123123</td>
-                        <td>M Ridwan</td>
-                        <td>
-                            <a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#detail" data-whatever="@mdo">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal" data-whatever="@mdo">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>123123123</td>
-                        <td>Rini Maryani</td>
-                        <td>123123123</td>
-                        <td>M Ridwan</td>
-                        <td>
-                            <a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#detail" data-whatever="@mdo">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal" data-whatever="@mdo">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
                     <!-- Edit Modal -->
                     <div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

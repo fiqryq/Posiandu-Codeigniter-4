@@ -100,6 +100,7 @@ class User extends BaseController
             'user_name' => $this->request->getVar('username'),
             'user_password' => $this->request->getVar('password'),
             'user_alamat' => $this->request->getVar('alamat'),
+            'user_kk' => $this->request->getVar('kk'),
             'user_nik' => $this->request->getVar('nik')
         );
         // dd($data);

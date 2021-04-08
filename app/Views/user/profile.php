@@ -24,6 +24,10 @@
                         <td><?php echo session()->get('user_nik'); ?></td>
                     </tr>
                     <tr>
+                        <td>KK</td>
+                        <td><?php echo session()->get('user_kk'); ?></td>
+                    </tr>
+                    <tr>
                         <td>Alamat</td>
                         <td><?php echo session()->get('user_alamat'); ?></td>
                     </tr>
