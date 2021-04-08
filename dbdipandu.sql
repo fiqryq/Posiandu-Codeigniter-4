@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Mar 2021 pada 17.44
--- Versi server: 10.4.18-MariaDB
--- Versi PHP: 7.3.27
+-- Generation Time: Apr 08, 2021 at 01:27 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.3.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_dipandu`
+-- Database: `dbdipandu`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `anak`
+-- Table structure for table `anak`
 --
 
 CREATE TABLE `anak` (
@@ -39,17 +39,16 @@ CREATE TABLE `anak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `anak`
+-- Dumping data for table `anak`
 --
 
 INSERT INTO `anak` (`id`, `nama_anak`, `umur_anak`, `tinggi_anak`, `berat_anak`, `lingkar_kepala`, `jenis_kelamin`, `no_kk`) VALUES
-(1, 'Contoh', '2', '50', '10', '10', 'Laki-laki', '7575757'),
-(2, 'Testing', '3', '4', '4', '10', 'Laki-laki', '7575757');
+(1, 'INDAH RATNA FURI\r\n', '2', '50', '10', '10', 'Perempuan', '3276046501920003');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `artikel`
+-- Table structure for table `artikel`
 --
 
 CREATE TABLE `artikel` (
@@ -63,7 +62,7 @@ CREATE TABLE `artikel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `artikel`
+-- Dumping data for table `artikel`
 --
 
 INSERT INTO `artikel` (`id`, `judul`, `body`, `penulis`, `gambar`, `created_at`, `id_penulis`) VALUES
@@ -72,7 +71,26 @@ INSERT INTO `artikel` (`id`, `judul`, `body`, `penulis`, `gambar`, `created_at`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penyuluhan`
+-- Table structure for table `imunisasi`
+--
+
+CREATE TABLE `imunisasi` (
+  `id` int(11) NOT NULL,
+  `nama_imunisasi` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `imunisasi`
+--
+
+INSERT INTO `imunisasi` (`id`, `nama_imunisasi`, `tanggal`) VALUES
+(12, 'Imunisasi 1', '0000-00-00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `penyuluhan`
 --
 
 CREATE TABLE `penyuluhan` (
@@ -82,17 +100,30 @@ CREATE TABLE `penyuluhan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `penyuluhan`
+-- Dumping data for table `penyuluhan`
 --
 
 INSERT INTO `penyuluhan` (`id`, `kegiatan`, `date`) VALUES
 (43, 'Contoh Penyuluhan 1', '2020-12-11'),
-(44, 'Contoh Penyuluhan 3', '2021-01-30');
+(44, 'Contoh Penyuluhan 3', '2021-04-24');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `posiandu`
+--
+
+CREATE TABLE `posiandu` (
+  `id` int(11) NOT NULL,
+  `hari` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jam` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -107,69 +138,91 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `user_email`, `user_name`, `user_password`, `user_alamat`, `user_nik`, `user_kk`, `level`) VALUES
-(1, 'fiqry@gmail.com', 'fiqry choerudin', '12345678', 'Sukapura', '123123123', '7575757', 4),
-(2, 'admin@gmail.com', 'admin', '12345678', 'Sukapura', '123123123', '152152552', 1),
-(3, 'kader@gmail.com', 'kader', '12345678', 'Sukapura', '123123123', '353525353532', 3),
-(4, 'bidan@gmail.com', 'bidan', '12345678', 'bandung', '1124214212', '757565645', 2),
-(30, 'fiqryq@gmail.com', 'fiqrychoerudin', '12345678', 'Gg.desa lengkong rt.05 rw.01  no.70 ds. ', '1234567890123456', '123123123123123', 4),
-(32, 'asfafaf@asf.com', 'asfasfsf', 'afasfasf', 'afafafaff', '121312321312313', '13123131312213', 2);
+(1, 'ortu@gmail.com', 'ortu', '12345678', 'Sukapura', '3271046504930001', '3276046501920003', 4),
+(2, 'admin@gmail.com', 'admin', '12345678', 'Sukapura', '3271046504930002', '152152552', 1),
+(3, 'kader@gmail.com', 'kader', '12345678', 'Sukapura', '3271046504930003', '353525353532', 3),
+(4, 'bidan@gmail.com', 'bidan', '12345678', 'bandung', '3271046504930004', '757565645', 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `anak`
+-- Indexes for table `anak`
 --
 ALTER TABLE `anak`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `artikel`
+-- Indexes for table `artikel`
 --
 ALTER TABLE `artikel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `penyuluhan`
+-- Indexes for table `imunisasi`
+--
+ALTER TABLE `imunisasi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `penyuluhan`
 --
 ALTER TABLE `penyuluhan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `posiandu`
+--
+ALTER TABLE `posiandu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `anak`
+-- AUTO_INCREMENT for table `anak`
 --
 ALTER TABLE `anak`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `artikel`
+-- AUTO_INCREMENT for table `artikel`
 --
 ALTER TABLE `artikel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT untuk tabel `penyuluhan`
+-- AUTO_INCREMENT for table `imunisasi`
 --
-ALTER TABLE `penyuluhan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+ALTER TABLE `imunisasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `penyuluhan`
+--
+ALTER TABLE `penyuluhan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT for table `posiandu`
+--
+ALTER TABLE `posiandu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;

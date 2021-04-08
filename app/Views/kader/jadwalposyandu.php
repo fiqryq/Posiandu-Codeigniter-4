@@ -83,6 +83,24 @@
                         </div>
                         <div class="modal-body">
                             <!-- Content -->
+                            <form action="/bidan/addpenyuluhan" action="POST">
+                                <div class="form-group">
+                                    <label for="kegiatan" class="col-form-label">Nama kegiatan</label>
+                                    <input type="text" id="kegiatan" class="form-control" name="kegiatan">
+                                </div>
+                                    <div class="form-group">
+                                        <label for="tanggal" class="col-form-label">Tanggal kegiatan</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                                <input type="text" class="form-control" name="date">
+                                                    <div class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-th"></span>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <div><button type="submit" class="btn btn-primary">Submit</button></div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -102,7 +120,7 @@
                         </div>
                         <div class="modal-body">
                             <!-- Content -->
-                            </form>
+                            
                         </div>
                     </div>
                 </div>

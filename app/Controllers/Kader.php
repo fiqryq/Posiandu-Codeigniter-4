@@ -3,13 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
-
+use App\Models\ImunisasiModel;
 class Kader extends BaseController
 {
     protected $userModel;
     public function __construct()
     {
         $this->userModel = new UserModel();
+        $this->imunisasiModel = new ImunisasiModel();
     }
 
     public function index()
@@ -50,9 +51,48 @@ class Kader extends BaseController
 
     public function jadwalimunisasi()
     {
-        $data = ['title' => "Jadwal Imunisasi"];
+        $imunisasi = $this->imunisasiModel->findAll();
+
+        $data = [
+            'title' => "Jadwal Imunisasi",
+            'imunisasi' => $imunisasi
+        ];
 
         return view('kader/jadwalimunisasi', $data);
+    }
+
+    public function addimunisasi(){
+        $oridate = $this->request->getVar('date');
+        $newdate = date('y-m-d', strtotime($oridate));
+        $data = array(
+            'nama_imunisasi' => $this->request->getVar('imunisasi'),
+            'date' => $newdate
+        );
+    
+        $this->imunisasiModel->save($data);
+        session()->setFlashdata('tambah', 'berhasil tambah imunisasi');
+        return redirect()->to('jadwalimunisasi');
+    }
+
+    public function editimunisasi($id){
+        $oridate = $this->request->getVar('date');
+        $newdate = date('y-m-d', strtotime($oridate));
+        $data = array(
+            'id' => $id,
+            'nama_imunisasi' => $this->request->getVar('imunisasi'),
+            'date' => $newdate
+        );
+    
+        $this->imunisasiModel->save($data);
+        session()->setFlashdata('update', 'berhasil update imunisasi');
+        return redirect()->to('/kader/jadwalimunisasi');
+    }
+
+    public function deleteImunisasi($id){
+        $this->imunisasiModel->delete($id);
+        session()->setFlashdata('delete', 'Data Berhasil Dihapus');
+
+        return redirect()->to(base_url('kader/jadwalimunisasi'));
     }
 
     public function jadwalposyandu()

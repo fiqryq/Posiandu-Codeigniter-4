@@ -120,7 +120,7 @@ class Bidan extends BaseController
         );
         $this->penyuluhanmodel->save($data);
 
-        session()->setFlashdata('update', 'Berhasil mengupdate penyluhan');
+        session()->setFlashdata('update', 'Berhasil menambah penyluhan');
         return redirect()->to('/bidan/index');
     }
 
@@ -137,7 +137,7 @@ class Bidan extends BaseController
         );
         $this->penyuluhanmodel->save($data);
 
-        session()->setFlashdata('berhasil', 'Berhasil membuat penyluhan');
+        session()->setFlashdata('update', 'Berhasil update penyluhan');
         return redirect()->to('/bidan/index');
     }
 
