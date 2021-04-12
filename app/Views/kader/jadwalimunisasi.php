@@ -28,6 +28,7 @@
                 </div>
             <?php } ?>
             <!-- End Flash Data -->
+            
             <!-- Flash Data -->
             <?php
             if (!empty(session()->getFlashdata('delete'))) { ?>
