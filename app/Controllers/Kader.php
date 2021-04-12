@@ -68,7 +68,7 @@ class Kader extends BaseController
             'nama_imunisasi' => $this->request->getVar('imunisasi'),
             'date' => $newdate
         );
-    
+        
         $this->imunisasiModel->save($data);
         session()->setFlashdata('tambah', 'berhasil tambah imunisasi');
         return redirect()->to('jadwalimunisasi');
