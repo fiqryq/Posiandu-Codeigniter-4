@@ -23,11 +23,6 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Anak</th>
-                        <th>Berat Badan</th>
-                        <th>Umur Anak</th>
-                        <th>Tinggi Badan</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Lingkar Kepala</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -40,11 +35,6 @@
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= $data['nama_anak'] ?></td>
-                            <td><?= $data['berat_anak'] ?> Kg</td>
-                            <td><?= $data['umur_anak'] ?></td>
-                            <td><?= $data['tinggi_anak'] ?> cm</td>
-                            <td><?= $data['jenis_kelamin'] ?></td>
-                            <td><?= $data['lingkar_kepala'] ?> cm</td>
                             <td>
                                 <a href="<?= base_url('user/detail/' . $id); ?>" class="btn btn-primary btn-circle">
                                     <i class="fas fa-eye"></i>

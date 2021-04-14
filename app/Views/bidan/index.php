@@ -154,12 +154,12 @@
                                         <form action="/bidan/addpenyuluhan" action="POST">
                                             <div class="form-group">
                                                 <label for="kegiatan" class="col-form-label">Nama kegiatan</label>
-                                                <input type="text" id="kegiatan" class="form-control" name="kegiatan">
+                                                <input type="text" id="kegiatan" class="form-control" name="kegiatan" placeholder="masukan nama kegiatan">
                                             </div>
                                             <div class="form-group">
                                                 <label for="tanggal" class="col-form-label">Tanggal kegiatan</label>
                                                 <div class="input-group date" data-provide="datepicker">
-                                                    <input type="text" class="form-control" name="date">
+                                                    <input type="text" class="form-control" name="date" placeholder="pilih tanggal">
                                                     <div class="input-group-addon">
                                                         <span class="glyphicon glyphicon-th"></span>
                                                     </div>

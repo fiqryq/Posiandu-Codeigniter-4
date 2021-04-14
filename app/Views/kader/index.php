@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js">
 
 <!-- content -->
-
 <div class="container-fluid">
     <div class="card shadow mb-4 mb-6">
         <div class="card-header py-3">
@@ -32,11 +31,11 @@
                         <th>NIK</th>
                         <th>Nama Kader</th>
                         <th>Alamat</th>
-                        <th>Action</th>
+                        <!-- <th>Action</th> -->
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Fetch data menggunakan json object
+                <!-- Fetch data menggunakan json object
                   passing key lalu masukan ke $value,
                   ambil $value->keydatabase -->
                     <?php foreach ($user as $k => $value) : ?>
@@ -47,14 +46,14 @@
                             <td><?= $value->user_nik; ?></td>
                             <td><?= $value->user_name; ?></td>
                             <td><?= $value->user_alamat; ?></td>
-                            <td>
+                            <!-- <td>
                                 <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal<?= $id; ?>" data-whatever="@mdo">
                                     <i class="fas fa-trash"></i>
                                 </a>
-                            </td>
+                            </td> -->
                         </tr>
 
                         <!-- Hapus Modal -->

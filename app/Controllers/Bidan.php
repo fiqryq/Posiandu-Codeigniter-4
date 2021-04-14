@@ -118,6 +118,7 @@ class Bidan extends BaseController
             'kegiatan' => $this->request->getVar('kegiatan'),
             'date' => $newdate
         );
+
         $this->penyuluhanmodel->save($data);
 
         session()->setFlashdata('update', 'Berhasil menambah penyluhan');

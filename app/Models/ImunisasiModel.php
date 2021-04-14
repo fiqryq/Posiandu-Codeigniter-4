@@ -8,7 +8,7 @@ class ImunisasiModel extends Model
 {
     protected $table = 'imunisasi';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nama_imunisasi', 'tanggal'];
+    protected $allowedFields = ['nama_imunisasi', 'tanggal_imunisasi'];
 
     public function saveData($data)
     {

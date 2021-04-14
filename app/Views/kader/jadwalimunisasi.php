@@ -59,15 +59,17 @@
                 </thead>
                 <tbody>
                 <?php $i = 1 ?>
-                    <?php foreach ($imunisasi as $k) : ?>
+                    <?php 
+                    foreach ($imunisasi as $k) : 
+                        $slug = $k['tanggal_imunisasi'] ?>
                         <?php $id = $k['id'] ?>
                     <tr>
                         <td><?= $i++; ?></td>
                         <td><?= $id; ?></td>
                         <td><?= $k['nama_imunisasi']; ?></td>
-                        <td><?= $k['tanggal']; ?></td>
+                        <td><?= $k['tanggal_imunisasi']; ?></td>
                         <td>
-                            <a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#listmodal" data-whatever="@mdo">
+                            <a href="/kader/detailImunisasi/<?= $slug; ?>" class="btn btn-primary btn-circle">
                                 <i class="fas fa-list"></i>
                             </a>
                             <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal<?= $id; ?>" data-whatever="@mdo">
@@ -99,7 +101,7 @@
                                         <div class="form-group">
                                             <label for="tanggal" class="col-form-label">Tanggal kegiatan</label>
                                                 <div class="input-group date" data-provide="datepicker">
-                                                    <input type="text" class="form-control" name="date">
+                                                    <input type="text" class="form-control" name="date" placeholder="pilih tanggal">
                                                 <div class="input-group-addon">
                                                     <span class="glyphicon glyphicon-th"></span>
                                             </div>
@@ -177,12 +179,12 @@
                             <form action="/kader/addimunisasi" action="POST">
                                 <div class="form-group">
                                     <label for="imunisasi" class="col-form-label">Nama Imunisasi</label>
-                                    <input type="text" id="kegiatan" class="form-control" name="imunisasi">
+                                    <input type="text" id="kegiatan" class="form-control" name="imunisasi" placeholder="masukan nama imunisasi">
                                 </div>
                                     <div class="form-group">
                                         <label for="tanggal" class="col-form-label">Tanggal kegiatan</label>
                                             <div class="input-group date" data-provide="datepicker">
-                                                <input type="text" class="form-control" name="date">
+                                                <input type="text" class="form-control" name="date" placeholder="pilih tanggal">
                                                     <div class="input-group-addon">
                                                         <span class="glyphicon glyphicon-th"></span>
                                                     </div>
@@ -209,6 +211,13 @@
 
 <script>
     $('#example').DataTable();
+</script>
+
+<script>
+    $('.datepicker').datepicker({
+        format: 'yyy/mm/dd',
+        startDate: '-3d'
+    });
 </script>
 <!-- end content -->
 <?= $this->endSection(); ?>

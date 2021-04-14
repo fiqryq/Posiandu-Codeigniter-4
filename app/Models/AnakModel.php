@@ -8,7 +8,7 @@ class AnakModel extends Model
 {
     protected $table = 'anak';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nama_anak', 'umur_anak', 'tinggi_anak', 'berat_anak', 'lingkar_kepala', 'jenis_kelamin', 'no_kk'];
+    protected $allowedFields = ['nama_anak', 'tanggal_lahir', 'umur','no_kk'];
 
     public function getDetail($no_kk)
     {

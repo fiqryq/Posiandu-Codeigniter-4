@@ -34,15 +34,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php $i = 1 ?>
+                <?php foreach($user as $key => $value) : $slug = $value->user_kk ?>
                     <tr>
-                        <td>1</td>
-                        <td>123123123</td>
-                        <td>Rini Maryani</td>
-                        <td>123123123</td>
-                        <td>M Ridwan</td>
+                        <td><?= $i++; ?></td>
+                        <td><?= $value->user_nik; ?></td>
+                        <td><?= $value->user_name ?></td>
+                        <td></td>
+                        <td></td>
                         <td>
-                            <a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#detail" data-whatever="@mdo">
-                                <i class="fas fa-eye"></i>
+                            <a href="/kader/dataanak/<?= $slug; ?>" class="btn btn-primary btn-circle">
+                            <i class="fas fa-list"></i>
                             </a>
                         </td>
                         <td>
@@ -54,6 +56,7 @@
                             </a>
                         </td>
                     </tr>
+                    <?php endforeach; ?>
                     <!-- Edit Modal -->
                     <div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

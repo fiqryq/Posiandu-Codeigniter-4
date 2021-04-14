@@ -27,18 +27,18 @@
 
 
     <!-- Nav Item -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="<?= base_url('kader/dataanak')  ?>">
             <i class="fas fa-seedling"></i>
             <span>Data Anak</span></a>
-    </li>
+    </li> -->
 
 
     <!-- Nav Item -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('kader/dataorangtua')  ?>">
+        <a class="nav-link" href="<?= base_url('kader/datakeluarga')  ?>">
             <i class="fas fa-calendar-times"></i>
-            <span>Data Orangtua</span></a>
+            <span>Data Keluarga</span></a>
     </li>
 
 

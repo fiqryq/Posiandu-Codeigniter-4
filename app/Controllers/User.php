@@ -5,18 +5,26 @@ namespace App\Controllers;
 use App\Models\ArtikelModel;
 use App\Models\PenyuluhanModel;
 use App\Models\AnakModel;
+use App\Models\ImunisasiModel;
+use App\Models\PemeriksaanImunisasiModel;
+
 
 class User extends BaseController
 {
     protected $artikelmodel;
     protected $penyuluhanmodel;
     protected $anakmodel;
+    protected $imunisasiModel;
+    protected $PemeriksaanImunisasiModel;
+
 
     public function __construct()
     {
         $this->artikelmodel = new ArtikelModel();
         $this->penyuluhanmodel = new PenyuluhanModel();
         $this->anakmodel = new AnakModel();
+        $this->imunisasiModel = new ImunisasiModel();
+        $this->PemeriksaanImunisasiModel = new PemeriksaanImunisasiModel();
     }
 
     public function index()
@@ -54,7 +62,14 @@ class User extends BaseController
 
     public function jadwalimunisasi()
     {
-        $data = ['title' => "Jadwal Imunisasi"];
+        $kk = session()->get('user_kk');
+        $imunisasi = $this->imunisasiModel->findAll();
+        $pemeriksaan = $this->PemeriksaanImunisasiModel->where('no_kk',$kk)->findAll();
+        $data = [
+            'title' => "Jadwal Imunisasi",
+            'imunisasi' => $imunisasi,
+            'pemeriksaan' => $pemeriksaan
+        ];
         return view('user/jadwalimunisasi', $data);
     }
 

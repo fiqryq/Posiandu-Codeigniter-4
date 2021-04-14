@@ -21,14 +21,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach($imunisasi as $key) : ?>
                     <tr>
-                        <td>Polio</td>
-                        <td>12/12/2020</td>
+                        <td><?= $key['nama_imunisasi']; ?></td>
+                        <td><?= $key['tanggal_imunisasi']; ?></td>
                     </tr>
-                    <tr>
-                        <td>Polio</td>
-                        <td>12/12/2020</td>
-                    </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
             <!-- end form -->
@@ -39,7 +37,7 @@
 <div class="container-fluid mt-5">
     <div class="card shadow mb-4 mb-6">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-dark">Daftar Imunisais Anak</h6>
+            <h6 class="m-0 font-weight-bold text-dark">Imunisasi Anak</h6>
         </div>
         <div class="card-body">
             <!-- start form -->
@@ -47,14 +45,26 @@
             <table id="example2" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id Balita</th>
+                        <th>No</th>
+                        <th>Id</th>
                         <th>Nama</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Umur</th>
+                        <th>Tanggal Imunisasi</th>
+                        <th>Nama Imunisasi</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-
+                <?php $i = 1 ?>
+                    <?php foreach($pemeriksaan as $key): ?>
+                    <tr>
+                    <tr>
+                        <td><?= $i++ ?></td>
+                        <td><?= $key['id_anak']; ?></td>
+                        <td><?= $key['nama_anak']; ?></td>
+                        <td><?= $key['tanggal_imunisasi']; ?></td>
+                        <td><?= $key['nama_imunisasi']; ?></td>
+                    </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
             <!-- end form -->
