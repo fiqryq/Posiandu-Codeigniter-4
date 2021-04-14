@@ -7,6 +7,7 @@ use App\Models\PenyuluhanModel;
 use App\Models\AnakModel;
 use App\Models\ImunisasiModel;
 use App\Models\PemeriksaanImunisasiModel;
+use App\Models\PesanModel;
 
 
 class User extends BaseController
@@ -16,7 +17,7 @@ class User extends BaseController
     protected $anakmodel;
     protected $imunisasiModel;
     protected $PemeriksaanImunisasiModel;
-
+    protected $PesanModel;
 
     public function __construct()
     {
@@ -25,6 +26,7 @@ class User extends BaseController
         $this->anakmodel = new AnakModel();
         $this->imunisasiModel = new ImunisasiModel();
         $this->PemeriksaanImunisasiModel = new PemeriksaanImunisasiModel();
+        $this->PesanModel = new PesanModel();
     }
 
     public function index()
@@ -128,5 +130,34 @@ class User extends BaseController
     {
         $data = ['title' => "Detail Anak"];
         return view('user/detail', $data);
+    }
+
+    public function pesan()
+    {
+        $iduser = session()->get('id');
+        $pesanterkirim = $this->PesanModel->where('id_pengirim', $iduser)->findAll();
+        $pesanmasuk = $this->PesanModel->where('id_penerima', $iduser)->findAll();
+        $data = [
+            'title' => "Pesan",
+            'pesanterkirim' => $pesanterkirim,
+            'pesanmasuk' => $pesanmasuk
+        ];
+        return view('user/pesan', $data);
+    }
+
+    public function sendmessage(){
+        $date = date("Y/m/d");
+        $iduser = session()->get('id');
+        $data = array(
+            'tanggal' => $date,
+            'nama_pengirim' => $this->request->getVar('nama_pengirim'),
+            'pesan' => $this->request->getVar('pesan'),
+            'id_penerima' => 2,
+            'id_pengirim' => $iduser,
+            'role' => 4
+        );
+        $this->PesanModel->save($data);
+        session()->setFlashdata('berhasil', 'Berhasil mengirim pesan');
+        return redirect()->to(base_url('user/pesan'));
     }
 }

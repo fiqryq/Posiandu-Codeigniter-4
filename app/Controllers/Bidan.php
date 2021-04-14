@@ -5,18 +5,21 @@ namespace App\Controllers;
 use App\Models\ArtikelModel;
 use App\Models\PenyuluhanModel;
 use App\Models\UserModel;
+use App\Models\PesanModel;
 
 
 class Bidan extends BaseController
 {
     protected $artikelmodel;
     protected $penyuluhanmodel;
+    protected $PesanModel;
 
     public function __construct()
     {
         $this->artikelmodel = new ArtikelModel();
         $this->penyuluhanmodel = new PenyuluhanModel();
         $this->userModel = new UserModel();
+        $this->PesanModel = new PesanModel();
     }
 
     public function index()
@@ -193,8 +196,31 @@ class Bidan extends BaseController
 
     public function pesan()
     {
-        $data = ['title' => "pesan"];
+        $iduser = session()->get('id');
+        $pesanterkirim = $this->PesanModel->where('id_pengirim', $iduser)->findAll();
+        $pesanmasuk = $this->PesanModel->where('role', 4)->findAll();
+        $data = [
+            'title' => "pesan",
+            'pesanmasuk' => $pesanmasuk,
+            'pesanterkirim' => $pesanterkirim
+        ];
         return view('bidan/pesan', $data);
+    }
+
+    public function sendmessage(){
+        $date = date("Y/m/d");
+        $iduser = session()->get('id');
+        $data = array(
+            'tanggal' => $date,
+            'nama_pengirim' => $this->request->getVar('nama_pengirim'),
+            'pesan' => $this->request->getVar('pesan'),
+            'id_penerima' => $this->request->getVar('idpesan'),
+            'id_pengirim' => $iduser,
+            'role' => 2
+        );
+        $this->PesanModel->save($data);
+        session()->setFlashdata('berhasil', 'Berhasil mengirim pesan');
+        return redirect()->to(base_url('bidan/pesan'));
     }
 }
     //--------------------------------------------------------------------

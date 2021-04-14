@@ -1,8 +1,31 @@
-<?= $this->extend('bidan/themplates/index'); ?>
+<?= $this->extend('user/themplates/index'); ?>
 <?= $this->section('content'); ?>
-<!-- content -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 <!-- content -->
 <div class="container-fluid">
+
+    <div class="card shadow mb-4 mb-6">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-dark">Tulis Pesan ke bidan</h6>
+        </div>
+        <div class="card-body">
+            <!-- start form -->
+            <form action="/user/sendmessage" method="POST">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Nama Pengirim</label>
+                <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim" value="<?= session()->get('user_name'); ?>">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Isi Pesan</label>
+                <textarea class="form-control" id="pesan" name="pesan" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Kirim pesan</button>
+            </form>
+            <!-- end form -->
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-6">
             <div class="card shadow mb-4 mb-6">
@@ -41,24 +64,16 @@
                                         </button>
                                         </div>
                                         <div class="modal-body">
-                                        <form action="/bidan/sendmessage" method="post">
+                                        <form>
                                             <div class="title">
                                                 <div class="container-fluid">
                                                 <label>pengirim : <?= $key['nama_pengirim']; ?></label>
                                                 <p><?= $key['pesan']; ?></p>
                                                 </div>
                                             </div>
-                                            <div class="form-group" hidden>
-                                                <label for="formGroupExampleInput">Nama Pengirim</label>
-                                                <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim" value="<?= session()->get('user_name') ?>">
-                                            </div>
-                                            <div class="form-group" hidden>
-                                                <label for="formGroupExampleInput">Id Pesan</label>
-                                                <input type="text" class="form-control" id="idpesan" name="idpesan" value="<?= $key['id_pengirim']; ?>">
-                                            </div>
                                             <div class="form-group">
                                                 <label for="exampleFormControlTextarea1">Balas pesan</label>
-                                                <textarea class="form-control" id="pesan" name="pesan" rows="3"></textarea>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-block">Kirim pesan</button>
                                             </form>
