@@ -7,12 +7,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"></h1>
         <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#tambahmodal" data-whatever="@mdo">
             <i class="fas fa-plus fa-sm text-white-50">
             </i>Tambah Keluarga</button>
-    </div>
+    </div> -->
 
     <div class="card shadow mb-4 mb-6">
         <div class="card-header py-3">
@@ -30,7 +30,7 @@
                         <th>NIK Ayah</th>
                         <th>Nama Ayah</th>
                         <th>Anak</th>
-                        <th>Action</th>
+                        <!-- <th>Action</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -47,14 +47,14 @@
                             <i class="fas fa-list"></i>
                             </a>
                         </td>
-                        <td>
+                        <!-- <td>
                             <a href="" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editmodal" data-whatever="@mdo">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <a href="" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapusmodal" data-whatever="@mdo">
                                 <i class="fas fa-trash"></i>
                             </a>
-                        </td>
+                        </td> -->
                     </tr>
                     <?php endforeach; ?>
                     <!-- Edit Modal -->

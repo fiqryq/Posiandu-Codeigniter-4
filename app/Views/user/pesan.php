@@ -9,8 +9,17 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-dark">Tulis Pesan ke bidan</h6>
         </div>
+            <!-- End Flash Data -->
         <div class="card-body">
             <!-- start form -->
+                  <!-- Flash Data -->
+           <?php
+            if (!empty(session()->getFlashdata('berhasil'))) { ?>
+                <div class="alert alert-success">
+                    <?php echo session()->getFlashdata('berhasil') ?>
+                </div>
+            <?php } ?>
+            
             <form action="/user/sendmessage" method="POST">
             <div class="form-group">
                 <label for="formGroupExampleInput">Nama Pengirim</label>

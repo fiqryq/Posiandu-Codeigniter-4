@@ -31,8 +31,8 @@
                             <td><?= $data['nama_anak'] ?></td>
                             <td><?= $data['tanggal_lahir'] ?></td>
                             <td>
-                                <a href="<?= base_url('user/detail/' . $id); ?>" class="btn btn-primary btn-circle">
-                                    <i class="fas fa-eye"></i>
+                                <a href="<?= base_url('user/detail/' . $id); ?>" class="btn btn-primary">
+                                    <i class="fas fa-info-circle"></i>
                                 </a>
                             </td>
                         </tr>

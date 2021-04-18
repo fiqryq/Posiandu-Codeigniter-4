@@ -56,6 +56,7 @@
                 <tbody>
                 <?php $i = 1 ?>
                     <?php foreach($pemeriksaan as $key): ?>
+                    <?php $id = $key['id'] ?>
                     <tr>
                     <tr>
                         <td><?= $i++ ?></td>
@@ -63,7 +64,28 @@
                         <td><?= $key['nama_anak']; ?></td>
                         <td><?= $key['tanggal_imunisasi']; ?></td>
                         <td><?= $key['nama_imunisasi']; ?></td>
+                        <td>
+                            <a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#detail<?= $id; ?>" data-whatever="@mdo">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                        </td>
                     </tr>
+                         <div class="modal fade" id="detail<?= $id; ?>" tabindex="-1" aria-labelledby="detail" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Content -->
+                                            <p><?= $key['catatan']; ?></p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                     <?php endforeach ?>
                 </tbody>
             </table>
