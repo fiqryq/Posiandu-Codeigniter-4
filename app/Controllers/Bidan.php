@@ -26,7 +26,7 @@ class Bidan extends BaseController
     {
         if (session()->get('level') != 2) {
             session()->setFlashdata('warning', 'Anda Belum Login !');
-            return redirect()->to(base_url('/'));
+            return redirect()->to(base_url('/home/index'));
         }
 
         $penyuluhan = $this->penyuluhanmodel->findAll();

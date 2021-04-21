@@ -32,9 +32,9 @@ class Auth extends BaseController
             }
         } else {
             // jika kondisi tidak terpenuhi maka akan redurect ke login view
-            return redirect()->to(base_url('home/index'));
+            return redirect()->to(base_url('/home/index'));
         }
-        return view('home/index', $data);
+        return view('/home/index', $data);
     }
 
     public function register()
@@ -102,7 +102,7 @@ class Auth extends BaseController
             }
         } else {
             session()->setFlashdata('gagal', 'username / password salah');
-            return redirect()->to(base_url('home/index'));
+            return redirect()->to(base_url('/home/index'));
         }
     }
 

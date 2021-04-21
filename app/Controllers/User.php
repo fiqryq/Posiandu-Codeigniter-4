@@ -33,7 +33,7 @@ class User extends BaseController
     {
         if (session()->get('level') != 4) {
             session()->setFlashdata('warning', 'Anda Belum Login !');
-            return redirect()->to(base_url('/'));
+            return redirect()->to(base_url('/home/index'));
         }
 
         $artikel = $this->artikelmodel->findAll();
