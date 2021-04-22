@@ -200,9 +200,9 @@ class Kader extends BaseController
             'user_name' => $this->request->getVar('username'),
             'user_password' => $this->request->getVar('password'),
             'user_alamat' => $this->request->getVar('alamat'),
+            'user_phone' => $this->request->getVar('phone'),
             'user_nik' => $this->request->getVar('nik')
         );
-
         $this->userModel->save($data);
         session()->setFlashdata('berhasil', 'Berhasil mengubah profile , untuk melihat perubahan harap logout terlebih dahulu. ');
         return redirect()->to(base_url('kader/edit_Profile'));

@@ -10,7 +10,7 @@
             <!-- start form -->
             <table class="table table-striped">
                 <tbody>
-                <tr>
+                    <tr>
                         <td>Nama</td>
                         <td><?php echo session()->get('user_name'); ?></td>
                     </tr>

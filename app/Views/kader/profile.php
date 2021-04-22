@@ -20,8 +20,12 @@
 
                     </tr>
                     <tr>
-                        <td>Nik</td>
+                        <td>Nomor NIK</td>
                         <td><?php echo session()->get('user_nik'); ?></td>
+                    </tr>
+                    <tr>
+                        <td>No Tlp</td>
+                        <td><?php echo session()->get('user_phone'); ?></td>
                     </tr>
                     <tr>
                         <td>Alamat</td>
@@ -29,7 +33,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a href="<?= base_url('user/edit_profile') ?>" class="btn btn-primary btn-block">Edit Profile</a>
+                            <a href="<?= base_url('kader/edit_profile') ?>" class="btn btn-primary btn-block">Edit Profile</a>
                         </td>
                     </tr>
                 </tbody>
