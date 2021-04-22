@@ -37,6 +37,10 @@
                     <input type="text" class="form-control form-control-user" id="nik" value="<?= session()->get('user_nik'); ?>" placeholder="Masukan NIK" name="nik">
                 </div>
                 <div class="form-group">
+                    <label for="phone">No Telp</label>
+                    <input type="text" class="form-control form-control-user" id="phone" value="<?= session()->get('user_phone'); ?>" placeholder="Masukan no tlp" name="phone">
+                </div>
+                <div class="form-group">
                     <label for="alamat">Alamat</label>
                     <input type="text" class="form-control form-control-user" id="alamat" value="<?= session()->get('user_alamat'); ?>" placeholder="Masukan Alamat" name="alamat">
                 </div>

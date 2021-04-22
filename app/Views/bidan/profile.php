@@ -10,7 +10,7 @@
             <!-- start form -->
             <table class="table table-striped">
                 <tbody>
-                    <tr>
+                <tr>
                         <td>Nama</td>
                         <td><?php echo session()->get('user_name'); ?></td>
                     </tr>
@@ -20,8 +20,12 @@
 
                     </tr>
                     <tr>
-                        <td>Nik</td>
+                        <td>Nomor NIK</td>
                         <td><?php echo session()->get('user_nik'); ?></td>
+                    </tr>
+                    <tr>
+                        <td>No Tlp</td>
+                        <td><?php echo session()->get('user_phone'); ?></td>
                     </tr>
                     <tr>
                         <td>Alamat</td>

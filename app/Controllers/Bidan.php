@@ -181,6 +181,7 @@ class Bidan extends BaseController
             'user_name' => $this->request->getVar('username'),
             'user_password' => $this->request->getVar('password'),
             'user_alamat' => $this->request->getVar('alamat'),
+            'user_phone' => $this->request->getVar('phone'),
             'user_nik' => $this->request->getVar('nik')
         );
         $this->userModel->save($data);
