@@ -98,6 +98,15 @@ class Admin extends BaseController
                         'min_length' => 'masukan {field} valid'
                     ]
                 ],
+                'phone' => [
+                    'rules' => 'required|max_length[12]|numeric|min_length[10]',
+                    'errors' => [
+                        'required' => '{field} harus di isi.',
+                        'max_length' => 'masukan {field} valid.',
+                        'numeric' => '{field} hanya berisi angka',
+                        'min_length' => 'masukan {field} valid'
+                    ]
+                ],
                 'alamat' => [
                     'rules' => 'required',
                     'errors' => [
@@ -116,6 +125,7 @@ class Admin extends BaseController
             'user_password' => $this->request->getPost('password'),
             'user_nik' => $this->request->getPost('nik'),
             'user_kk' => $this->request->getPost('kk'),
+            'user_phone' => $this->request->getPost('phone'),
             'user_alamat' => $this->request->getPost('alamat'),
             'level' => $level,
         );
@@ -126,8 +136,8 @@ class Admin extends BaseController
 
     public function register_bidan()
     {
-          // Form validation
-          if (!$this->validate([
+         // Form validation
+         if (!$this->validate([
             'username' => [
                 'rules' => 'required',
                 'errors' => [
@@ -142,7 +152,7 @@ class Admin extends BaseController
                 ]
             ],
             'nik' => [
-                'rules' => 'required|max_length[16]|numeric||min_length[15]',
+                'rules' => 'required|max_length[16]|numeric|min_length[15]',
                 'errors' => [
                     'required' => '{field} harus di isi.',
                     'max_length' => 'masukan {field} valid.',
@@ -159,6 +169,15 @@ class Admin extends BaseController
                     'min_length' => 'masukan {field} valid'
                 ]
             ],
+            'phone' => [
+                'rules' => 'required|max_length[12]|numeric|min_length[10]',
+                'errors' => [
+                    'required' => '{field} harus di isi.',
+                    'max_length' => 'masukan {field} valid.',
+                    'numeric' => '{field} hanya berisi angka',
+                    'min_length' => 'masukan {field} valid'
+                ]
+            ],
             'alamat' => [
                 'rules' => 'required',
                 'errors' => [
@@ -167,9 +186,9 @@ class Admin extends BaseController
             ],
         ])) {
 
-            return redirect()->to('addbidan')->withInput();
+            return redirect()->to('addkader')->withInput();
         }
-
+    
         $level = 2;
         $data = array(
             'user_email' => $this->request->getPost('email'),
@@ -177,6 +196,7 @@ class Admin extends BaseController
             'user_password' => $this->request->getPost('password'),
             'user_nik' => $this->request->getPost('nik'),
             'user_kk' => $this->request->getPost('kk'),
+            'user_phone' => $this->request->getPost('phone'),
             'user_alamat' => $this->request->getPost('alamat'),
             'level' => $level,
         );

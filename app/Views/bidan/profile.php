@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a href="<?= base_url('admin/edit_profile') ?>" class="btn btn-primary btn-block"> Edit Profile</a>
+                            <a href="<?= base_url('bidan/edit_profile') ?>" class="btn btn-primary btn-block"> Edit Profile</a>
                         </td>
                     </tr>
                 </tbody>
