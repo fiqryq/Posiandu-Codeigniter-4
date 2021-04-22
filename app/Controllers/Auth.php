@@ -74,6 +74,7 @@ class Auth extends BaseController
                 session()->set('user_alamat', $cek['user_alamat']);
                 session()->set('user_nik', $cek['user_nik']);
                 session()->set('user_kk', $cek['user_kk']);
+                session()->set('user_phone', $cek['user_phone']);
                 return redirect()->to(base_url('user'));
             } else if ($cek['level'] == 1) {
                 session()->set('user_email', $cek['user_email']);
@@ -90,6 +91,7 @@ class Auth extends BaseController
                 session()->set('level', $cek['level']);
                 session()->set('user_alamat', $cek['user_alamat']);
                 session()->set('user_nik', $cek['user_nik']);
+                session()->set('user_phone', $cek['user_phone']);
                 return redirect()->to(base_url('bidan'));
             } else if ($cek['level'] == 3) {
                 session()->set('user_email', $cek['user_email']);
@@ -98,6 +100,7 @@ class Auth extends BaseController
                 session()->set('level', $cek['level']);
                 session()->set('user_alamat', $cek['user_alamat']);
                 session()->set('user_nik', $cek['user_nik']);
+                session()->set('user_phone', $cek['user_phone']);
                 return redirect()->to(base_url('kader'));
             }
         } else {
@@ -179,6 +182,7 @@ class Auth extends BaseController
         return redirect()->to('/home/index');
     }
 
+    // edit user for admins
     public function edit_users($id)
     {
         $data = array(
@@ -187,12 +191,31 @@ class Auth extends BaseController
             'user_name' => $this->request->getVar('username'),
             'user_password' => $this->request->getVar('password'),
             'user_alamat' => $this->request->getVar('alamat'),
+            'user_phone' => $this->request->getVar('phone'),
             'user_nik' => $this->request->getVar('nik')
         );
 
         $this->userModel->save($data);
         session()->setFlashdata('berhasil', 'Berhasil Mengupdate data');
         return redirect()->to(base_url('/admin'));
+    }
+
+    // edit user profile for user ortu
+    public function editProfile($id)
+    {
+        $data = array(
+            'id' => $id,
+            'user_email' => $this->request->getVar('email'),
+            'user_name' => $this->request->getVar('username'),
+            'user_password' => $this->request->getVar('password'),
+            'user_alamat' => $this->request->getVar('alamat'),
+            'user_phone' => $this->request->getVar('phone'),
+            'user_kk' => $this->request->getVar('kk'),
+            'user_nik' => $this->request->getVar('nik')
+        );
+        $this->userModel->save($data);
+        session()->setFlashdata('berhasil', 'Berhasil mengubah profile , untuk melihat perubahan harap logout terlebih dahulu. ');
+        return redirect()->to(base_url('user/edit_Profile'));
     }
 
     // Fungsi delete data user berdasarkan id user

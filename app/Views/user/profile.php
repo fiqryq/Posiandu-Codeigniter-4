@@ -20,12 +20,16 @@
 
                     </tr>
                     <tr>
-                        <td>Nik</td>
+                        <td>Nomor NIK</td>
                         <td><?php echo session()->get('user_nik'); ?></td>
                     </tr>
                     <tr>
-                        <td>KK</td>
+                        <td>Nomor KK</td>
                         <td><?php echo session()->get('user_kk'); ?></td>
+                    </tr>
+                    <tr>
+                        <td>No Tlp</td>
+                        <td><?php echo session()->get('user_phone'); ?></td>
                     </tr>
                     <tr>
                         <td>Alamat</td>

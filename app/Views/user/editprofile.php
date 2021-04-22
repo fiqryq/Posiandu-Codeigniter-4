@@ -18,7 +18,7 @@
 
             <!-- start form -->
             <?php $id = session()->get('id') ?>
-            <form action="<?= base_url('/bidan/editProfile/' . $id); ?>" method="post">
+            <form action="<?= base_url('/auth/editProfile/' . $id); ?>" method="POST">
                 <? csrf_field();  ?>
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -34,11 +34,15 @@
                 </div>
                 <div class="form-group">
                     <label for="nik">NIK(Nomor induk kependudukan)</label>
-                    <input disabled type="text" class="form-control form-control-user" id="nik" value="<?= session()->get('user_nik'); ?>" placeholder="Masukan NIK" name="nik">
+                    <input type="text" class="form-control form-control-user" id="nik" value="<?= session()->get('user_nik'); ?>" placeholder="Masukan NIK" name="nik">
                 </div>
                 <div class="form-group">
                     <label for="kk">KK(Nomor KK)</label>
-                    <input type="text" disabled class="form-control form-control-user" id="kk" value="<?= session()->get('user_kk'); ?>" placeholder="Masukan KK" name="kk">
+                    <input type="text" class="form-control form-control-user" id="kk" value="<?= session()->get('user_kk'); ?>" placeholder="Masukan KK" name="kk">
+                </div>
+                <div class="form-group">
+                    <label for="phone">No Telp</label>
+                    <input type="text" class="form-control form-control-user" id="phone" value="<?= session()->get('user_phone'); ?>" placeholder="Masukan no tlp" name="phone">
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
