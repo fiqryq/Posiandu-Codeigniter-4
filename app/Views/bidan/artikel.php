@@ -101,7 +101,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="isiartikel">Artikel</label>
-                                                <textarea name="isiartikel" class="form-control" id="isiartikel" rows="3" placeholder="masukan isi artikel"><?= $key['body']; ?></textarea>
+                                                <textarea name="isiartikel" class="form-control" id="isiartikel" rows="8" placeholder="masukan isi artikel"><?= $key['body']; ?></textarea>
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-block">Edit Article</button>
                                         </form>
