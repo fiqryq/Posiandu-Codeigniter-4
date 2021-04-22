@@ -34,6 +34,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <input type="text" class="form-control form-control-user <?= ($validation->hasError('phone') ? 'is-invalid' : ''); ?>" id="phone" placeholder="Masukan no tlp" name="phone" value="<?= old('phone'); ?>">
+                                        <div class="invalid-feedback ml-2">
+                                            <?= $validation->getError('phone'); ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <input type="text" class="form-control form-control-user <?= ($validation->hasError('nik') ? 'is-invalid' : ''); ?>" id="nik" placeholder="Masukan Nik" name="nik" value="<?= old('nik'); ?>">
                                         <div class="invalid-feedback ml-2">
                                             <?= $validation->getError('nik'); ?>

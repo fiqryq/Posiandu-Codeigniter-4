@@ -18,22 +18,22 @@
 
     <!-- Vendor CSS Files -->
     <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      href="<?= base_url(); ?>/assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      href="<?= base_url(); ?>/assets/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="<?= base_url(); ?>/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="<?= base_url(); ?>/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="<?= base_url(); ?>/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
     <link
-      href="assets/vendor/glightbox/css/glightbox.min.css"
+      href="<?= base_url(); ?>/assets/vendor/glightbox/css/glightbox.min.css"
       rel="stylesheet"
     />
 
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="<?= base_url(); ?>/assets/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -168,15 +168,15 @@
     ></a>
 
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/purecounter/purecounter.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendor/aos/aos.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendor/php-email-form/validate.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendor/purecounter/purecounter.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendor/glightbox/js/glightbox.min.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/main.js"></script>
   </body>
 </html>

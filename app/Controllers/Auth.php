@@ -143,6 +143,15 @@ class Auth extends BaseController
                     'numeric' => '{field} hanya berisi angka',
                 ]
             ],
+            'phone' => [
+                'rules' => 'required|max_length[12]|numeric|min_length[10]',
+                'errors' => [
+                    'required' => '{field} harus di isi.',
+                    'max_length' => 'masukan {field} valid.',
+                    'min_length' => '{field} harus terdiri dari 10 - 12 angka',
+                    'numeric' => '{field} hanya berisi angka',
+                ]
+            ],
             'alamat' => [
                 'rules' => 'required',
                 'errors' => [
@@ -159,6 +168,7 @@ class Auth extends BaseController
             'user_email' => $this->request->getPost('email'),
             'user_name' => $this->request->getPost('username'),
             'user_password' => $this->request->getPost('password'),
+            'user_phone' => $this->request->getPost('phone'),
             'user_nik' => $this->request->getPost('nik'),
             'user_kk' => $this->request->getPost('kk'),
             'user_alamat' => $this->request->getPost('alamat'),
@@ -166,7 +176,7 @@ class Auth extends BaseController
         );
         $this->userModel->saveData($data);
         session()->setFlashdata('berhasil', 'Berhasil Mendaftar silahkan login');
-        return redirect()->to('home/index');
+        return redirect()->to('/home/index');
     }
 
     public function edit_users($id)
