@@ -114,12 +114,9 @@ class Bidan extends BaseController
 
     public function addpenyuluhan()
     {
-        // Convert oridate ('d-m-y')
-        $oridate = $this->request->getVar('date');
-        $newdate = date('y-m-d', strtotime($oridate));
         $data = array(
             'kegiatan' => $this->request->getVar('kegiatan'),
-            'date' => $newdate
+            'date' => $this->request->getVar('date')
         );
 
         $this->penyuluhanmodel->save($data);
@@ -131,13 +128,10 @@ class Bidan extends BaseController
 
     public function editpenyuluhan($id)
     {
-        // Convert oridate ('d-m-y')
-        $oridate = $this->request->getVar('date');
-        $newdate = date('y-m-d', strtotime($oridate));
         $data = array(
             'id' => $id,
             'kegiatan' => $this->request->getVar('kegiatan'),
-            'date' => $newdate
+            'date' => $this->request->getVar('date')
         );
         $this->penyuluhanmodel->save($data);
 

@@ -82,11 +82,10 @@ class Kader extends BaseController
     }
 
     public function addimunisasi(){
-        $oridate = $this->request->getVar('date');
-        $newdate = date('y-m-d', strtotime($oridate));
+    
         $data = array(
             'nama_imunisasi' => $this->request->getVar('imunisasi'),
-            'tanggal_imunisasi' => $newdate
+            'tanggal_imunisasi' => $this->request->getVar('date')
         );
 
         $this->imunisasiModel->save($data);
@@ -97,7 +96,7 @@ class Kader extends BaseController
                 'no_kk' => $key['no_kk'],
                 'nama_anak' => $key['nama_anak'],
                 'nama_imunisasi' => $this->request->getVar('imunisasi'),
-                'tanggal_imunisasi' => $newdate,
+                'tanggal_imunisasi' => $this->request->getVar('date'),
                 'id_anak' => $key['id']
             ]);
         }
@@ -107,12 +106,10 @@ class Kader extends BaseController
     }
 
     public function editimunisasi($id){
-        $oridate = $this->request->getVar('date');
-        $newdate = date('y-m-d', strtotime($oridate));
         $data = array(
             'id' => $id,
             'nama_imunisasi' => $this->request->getVar('imunisasi'),
-            'tanggal_imunisasi' => $newdate
+            'tanggal_imunisasi' => $this->request->getVar('date')
         );
     
         $this->imunisasiModel->save($data);
