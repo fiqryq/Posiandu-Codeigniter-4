@@ -25,26 +25,20 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>NIK Ibu</th>
-                        <th>Nama Ibu</th>
-                        <th>NIK Ayah</th>
-                        <th>Nama Ayah</th>
-                        <th>Anak</th>
+                        <th>No Kartu Keluarga</th>
+                        <th>Action</th>
                         <!-- <th>Action</th> -->
                     </tr>
                 </thead>
                 <tbody>
                 <?php $i = 1 ?>
-                <?php foreach($user as $key => $value) : $slug = $value->user_kk ?>
+                <?php foreach($user as $key => $value) : $slug = $value->user_kk?>
                     <tr>
                         <td><?= $i++; ?></td>
-                        <td><?= $value->user_nik; ?></td>
-                        <td><?= $value->user_name ?></td>
-                        <td></td>
-                        <td></td>
+                        <td><?= $value->user_name; ?></td>
                         <td>
                             <a href="/kader/dataanak/<?= $slug; ?>" class="btn btn-primary btn-circle">
-                            <i class="fas fa-list"></i>
+                                <i class="fas fa-list"></i>
                             </a>
                         </td>
                         <!-- <td>
@@ -75,7 +69,7 @@
                         </div>
                     </div>
                     <!-- End Modal -->
-
+                    
                     <!-- Detail Modal -->
                     <div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -117,7 +111,6 @@
                         </div>
                     </div>
                     <!-- End Modal -->
-
                 </tbody>
             </table>
             <!-- end form -->
@@ -128,8 +121,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/rowgroup/1.1.2/js/dataTables.rowGroup.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
 <script>
-    $('#example').DataTable();
+    $(document).ready(function() {
+    $('#example').DataTable( {
+        order: [[2, 'asc']],
+        rowGroup: {
+            dataSrc: 2
+        }
+    } );
+} );
 </script>
 <!-- end content -->
 <?= $this->endSection(); ?>

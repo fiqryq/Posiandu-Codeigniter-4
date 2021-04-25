@@ -62,7 +62,7 @@
                                 <!-- End Form -->
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="<?= base_url('/') ?>">Sudah Punya Akun?</a>
+                                    <a class="small" href="<?= base_url('/home/index') ?>">Sudah Punya Akun?</a>
                                 </div>
                             </div>
                         </div>

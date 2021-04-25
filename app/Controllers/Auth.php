@@ -4,15 +4,17 @@ namespace App\Controllers;
 
 use App\Models\LoginModel;
 use App\Models\UserModel;
-
+use App\Models\KeluargaModel;
 
 class Auth extends BaseController
 {
-
     protected $userModel;
+    protected $KeluargaModel;
+
     public function __construct()
     {
         $this->userModel = new UserModel();
+        $this->KeluargaModel = new KeluargaModel();
     }
 
     public function index()
@@ -178,6 +180,12 @@ class Auth extends BaseController
             'level' => $level,
         );
         $this->userModel->saveData($data);
+
+        // $keluarga = array(
+        //     'no_kk' => $this->request->getPost('kk')
+        // );
+        // $this->KeluargaModel->save($keluarga);
+
         session()->setFlashdata('berhasil', 'Berhasil Mendaftar silahkan login');
         return redirect()->to('/home/index');
     }

@@ -4,10 +4,11 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use App\Models\ImunisasiModel;
+use App\Models\PosianduModel;
 use App\Models\DetailImunisasiModel;
 use App\Models\AnakModel;
 use App\Models\PemeriksaanImunisasiModel;
-
+use App\Models\KeluargaModel;
 
 class Kader extends BaseController
 {
@@ -16,6 +17,8 @@ class Kader extends BaseController
     protected $detailImunisasi;
     protected $imunisasiModel;
     protected $PemeriksaanImunisasiModel;
+    protected $KeluargaModel;
+    protected $PosianduModel;
 
     public function __construct()
     {
@@ -23,7 +26,9 @@ class Kader extends BaseController
         $this->imunisasiModel = new ImunisasiModel();
         $this->detailImunisasi = new DetailImunisasiModel();
         $this->anakModel = new AnakModel();
+        $this->KeluargaModel = new KeluargaModel();
         $this->PemeriksaanImunisasiModel = new PemeriksaanImunisasiModel();
+        $this->PosianduModel = new PosianduModel();
     }
 
     public function index()
@@ -124,9 +129,89 @@ class Kader extends BaseController
 
     public function jadwalposyandu()
     {
-        $data = ['title' => "Jadwal Posyandu"];
+        $posiandu = $this->PosianduModel->findAll();
+        $data = [
+            'title' => "Jadwal Posiandu",
+            'posiandu' => $posiandu
+        ];
 
         return view('kader/jadwalposyandu', $data);
+    }
+
+    public function addposiandu(){
+        // Get Day data from date
+        $oridate = $this->request->getVar('date');
+        $timestamp = strtotime($oridate);
+        $day = date('D',$timestamp);
+        
+        if ($day == "Sun") {
+            $day = "Minggu";
+        } else if ($day == "Mon") {
+            $day = "Senin";
+        } else if ($day == "Tue") {
+            $day = "Selasa";
+        } else if ($day == "Wed") {
+            $day = "Rabu";
+        } else if ($day == "Thu") {
+            $day = "Kamis";
+        } else if ($day == "Fri") {
+            $day = "Jumat";
+        } else if ($day == "Sat") {
+            $day = "Sabtu";
+        } 
+        
+        $data = array(
+            'tanggal_posiandu' => $this->request->getVar('date'),
+            'waktu_mulai' => $this->request->getVar('w_mulai'),
+            'waktu_selesai' => $this->request->getVar('w_selesai'),
+            'hari' => $day
+        );
+        
+        $this->PosianduModel->save($data);
+        session()->setFlashdata('tambah', 'Berhasil membuat jadwal posiandu');
+
+        return redirect()->to(base_url('kader/jadwalposyandu'));
+    }
+
+    public function editposiandu($id){
+        // Get Day data from date
+        $oridate = $this->request->getVar('date');
+        $timestamp = strtotime($oridate);
+        $day = date('D',$timestamp);
+        
+        if ($day == "Sun") {
+            $day = "Minggu";
+        } else if ($day == "Mon") {
+            $day = "Senin";
+        } else if ($day == "Tue") {
+            $day = "Selasa";
+        } else if ($day == "Wed") {
+            $day = "Rabu";
+        } else if ($day == "Thu") {
+            $day = "Kamis";
+        } else if ($day == "Fri") {
+            $day = "Jumat";
+        } else if ($day == "Sat") {
+            $day = "Sabtu";
+        } 
+        
+        $data = array(
+            'id' => $id,
+            'tanggal_posiandu' => $this->request->getVar('date'),
+            'waktu_mulai' => $this->request->getVar('w_mulai'),
+            'waktu_selesai' => $this->request->getVar('w_selesai'),
+            'hari' => $day
+        );
+        
+        $this->PosianduModel->save($data);
+        return redirect()->to(base_url('kader/jadwalposyandu'));
+    }
+
+    public function deleteposiandu($id){
+        $this->PosianduModel->delete($id);
+        session()->setFlashdata('delete', 'Data Berhasil Dihapus');
+
+        return redirect()->to(base_url('kader/jadwalposyandu'));
     }
 
     public function laporan()

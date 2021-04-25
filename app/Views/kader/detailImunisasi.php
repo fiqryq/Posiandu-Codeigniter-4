@@ -100,6 +100,7 @@
                                                             <label for="formGroupExampleInput">Lingkar Badan</label>
                                                             <input type="number" class="form-control" id="lingkarbadan" name="lingkarbadan" placeholder="masukan linkar badan">
                                                         </div>
+                                                       
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="form-group">
