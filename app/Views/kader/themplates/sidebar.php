@@ -53,7 +53,7 @@
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('kader/jadwalposyandu')  ?>">
             <i class="fas fa-file-alt"></i>
-            <span>Jadwal Posyandu</span></a>
+            <span>Jadwal Posiandu</span></a>
     </li>
 
     <!-- Nav Item -->

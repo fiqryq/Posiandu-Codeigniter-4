@@ -22,7 +22,7 @@
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('user')  ?>">
             <i class="fas fa-book"></i>
-            <span>Panduan Posyandu</span></a>
+            <span>Panduan Posiandu</span></a>
     </li>
 
 
@@ -46,7 +46,7 @@
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('user/jadwalposyandu')  ?>">
             <i class="fas fa-calendar-times"></i>
-            <span>Jadwal Posyandu</span></a>
+            <span>Jadwal Posiandu</span></a>
     </li>
 
     <!-- Nav Item -->
@@ -56,9 +56,9 @@
             <span>Penyuluhan</span></a>
     </li>
 
-    
-     <!-- Nav Item -->
-     <li class="nav-item">
+
+    <!-- Nav Item -->
+    <li class="nav-item">
         <a class="nav-link" href="<?= base_url('user/pesan')  ?>">
             <i class="fas fa-envelope"></i>
             <span>Pesan</span></a>

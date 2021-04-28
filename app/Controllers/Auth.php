@@ -163,6 +163,12 @@ class Auth extends BaseController
                     'required' => '{field} harus di isi.'
                 ]
             ],
+            'role' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus di isi.'
+                ]
+            ],
         ])) {
 
             return redirect()->to('register')->withInput();
@@ -177,6 +183,7 @@ class Auth extends BaseController
             'user_nik' => $this->request->getPost('nik'),
             'user_kk' => $this->request->getPost('kk'),
             'user_alamat' => $this->request->getPost('alamat'),
+            'is_parent' => $this->request->getPost('role'),
             'level' => $level,
         );
         $this->userModel->saveData($data);

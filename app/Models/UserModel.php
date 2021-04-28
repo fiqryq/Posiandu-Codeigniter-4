@@ -48,4 +48,9 @@ class UserModel extends Model
         $data = $this->db->table($this->table)->getWhere(['level' => $level])->getResultObject();
         return $data;
     }
+
+    public function getKeluarga($slug){
+        $data = $this->db->table($this->table)->getWhere(['user_kk' => $slug])->getResultObject();
+        return $data;
+    }
 }

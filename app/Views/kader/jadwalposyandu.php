@@ -19,7 +19,7 @@
 
     <div class="card shadow mb-4 mb-6">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-dark">Jadwal Posyandu</h6>
+            <h6 class="m-0 font-weight-bold text-dark">Jadwal Posiandu</h6>
         </div>
         <div class="card-body">
 
@@ -57,12 +57,17 @@
                     <?php foreach($posiandu as $key) :  ?>
                     <?php 
                         $id = $key['id'];
+                        // Convert time
+                        $mulairaw = $key['waktu_mulai'];
+                        $mulai = date('H:i', strtotime($mulairaw));
+                        $selesairaw = $key['waktu_selesai'];
+                        $selesai = date('H:i', strtotime($selesairaw));
                     ?>
                     <tr>
                         <td><?= $i++; ?></td>
                         <td><?= $key['hari']; ?></td>
                         <td><?= $key['tanggal_posiandu']; ?></td>
-                        <td><?= $key['waktu_mulai']; ?> - <?= $key['waktu_selesai']; ?></td>
+                        <td><?= $mulai ?> - <?= $selesai ?></td>
                         <td>
                             <a href="" class="btn btn-success btn-circle" data-toggle="modal"
                                 data-target="#editmodal<?= $id; ?>" data-whatever="@mdo">

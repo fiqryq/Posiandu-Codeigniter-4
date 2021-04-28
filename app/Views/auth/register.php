@@ -16,48 +16,79 @@
                                 <form class="user" action="<?= base_url('auth/register_user'); ?>" method="POST">
                                     <?php csrf_field(); ?>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user <?= ($validation->hasError('username') ? 'is-invalid' : ''); ?>" id="username" placeholder="Masukan Username" name="username" autofocus value="<?= old('username'); ?>">
+                                        <input type="text"
+                                            class="form-control form-control <?= ($validation->hasError('username') ? 'is-invalid' : ''); ?>"
+                                            id="username" placeholder="Masukan Username" name="username" autofocus
+                                            value="<?= old('username'); ?>">
                                         <div class="invalid-feedback ml-2">
                                             <?= $validation->getError('username'); ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user <?= ($validation->hasError('email') ? 'is-invalid' : ''); ?>" id="email" placeholder="Masukan Email" name="email" value="<?= old('email'); ?>">
+                                        <input type="email"
+                                            class="form-control form-control <?= ($validation->hasError('email') ? 'is-invalid' : ''); ?>"
+                                            id="email" placeholder="Masukan Email" name="email"
+                                            value="<?= old('email'); ?>">
                                         <div class="invalid-feedback ml-2">
                                             <?= $validation->getError('email'); ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user <?= ($validation->hasError('password') ? 'is-invalid' : ''); ?>" id="password" placeholder="Masukan Password" name="password" value="<?= old('password'); ?>">
+                                        <input type="password"
+                                            class="form-control form-control <?= ($validation->hasError('password') ? 'is-invalid' : ''); ?>"
+                                            id="password" placeholder="Masukan Password" name="password"
+                                            value="<?= old('password'); ?>">
                                         <div class="invalid-feedback ml-2">
                                             <?= $validation->getError('password'); ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user <?= ($validation->hasError('phone') ? 'is-invalid' : ''); ?>" id="phone" placeholder="Masukan no tlp" name="phone" value="<?= old('phone'); ?>">
+                                        <input type="text"
+                                            class="form-control form-control <?= ($validation->hasError('phone') ? 'is-invalid' : ''); ?>"
+                                            id="phone" placeholder="Masukan no tlp" name="phone"
+                                            value="<?= old('phone'); ?>">
                                         <div class="invalid-feedback ml-2">
                                             <?= $validation->getError('phone'); ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user <?= ($validation->hasError('nik') ? 'is-invalid' : ''); ?>" id="nik" placeholder="Masukan Nik" name="nik" value="<?= old('nik'); ?>">
+                                        <input type="text"
+                                            class="form-control form-control <?= ($validation->hasError('nik') ? 'is-invalid' : ''); ?>"
+                                            id="nik" placeholder="Masukan Nik" name="nik" value="<?= old('nik'); ?>">
                                         <div class="invalid-feedback ml-2">
                                             <?= $validation->getError('nik'); ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user <?= ($validation->hasError('kk') ? 'is-invalid' : ''); ?>" id="kk" placeholder="Masukan Nomor KK" name="kk" value="<?= old('kk'); ?>">
+                                        <input type="text"
+                                            class="form-control form-control <?= ($validation->hasError('kk') ? 'is-invalid' : ''); ?>"
+                                            id="kk" placeholder="Masukan Nomor KK" name="kk" value="<?= old('kk'); ?>">
                                         <div class="invalid-feedback ml-2">
                                             <?= $validation->getError('kk'); ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user <?= ($validation->hasError('alamat') ? 'is-invalid' : ''); ?>" id="alamat" placeholder="Masukan Alamat" name="alamat" value="<?= old('alamat'); ?>">
+                                        <input type="text"
+                                            class="form-control form-control <?= ($validation->hasError('alamat') ? 'is-invalid' : ''); ?>"
+                                            id="alamat" placeholder="Masukan Alamat" name="alamat"
+                                            value="<?= old('alamat'); ?>">
                                         <div class="invalid-feedback ml-2">
                                             <?= $validation->getError('alamat'); ?>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">Register Account</button>
+                                    <div class="form-gorup mb-3">
+                                        <select id="inputState"
+                                            class="form-control form-control <?= ($validation->hasError('role') ? 'is-invalid' : ''); ?>"
+                                            name="role">
+                                            <option value="1">Ibu</option>
+                                            <option value="2">Ayah</option>
+                                        </select>
+                                        <div class="invalid-feedback ml-2">
+                                            <?= $validation->getError('role'); ?>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">Register
+                                        Account</button>
                                 </form>
                                 <!-- End Form -->
                                 <hr>

@@ -48,14 +48,17 @@ class Kader extends BaseController
         return view('kader/index', $data);
     }
 
-    public function dataanak($slug)
+    public function detailkeluarga($slug)
     {
         $detail = $this->anakModel->where('no_kk', $slug)->findAll();
+        $orangtua = $this->userModel->getKeluarga($slug);
+
         $data = [
             'title' => "Data Anak",
-            'detail' => $detail
+            'detail' => $detail,
+            'orangtua' => $orangtua
         ];
-        return view('kader/anak', $data);
+        return view('kader/datakeluarga', $data);
     }
 
     public function datakeluarga()
@@ -260,16 +263,37 @@ class Kader extends BaseController
     }
 
     public function addanak(){
-        $oridate = $this->request->getVar('date');
-        $newdate = date('y-m-d', strtotime($oridate));
         $data = array(
             'nama_anak' => $this->request->getVar('nama'),
-            'tanggal_lahir' => $newdate,
+            'tanggal_lahir' => $this->request->getVar('date'),
             'umur' => $this->request->getVar('umur'),
-            'no_kk' => $this->request->getVar('no_kk')
+            'no_kk' => $this->request->getVar('no_kk'),
+            'nik' => $this->request->getVar('nik')
         );
         $this->anakModel->save($data);
         session()->setFlashdata('tambah', 'berhasil tambah data anak');
+
+        return redirect()->to(base_url('/kader/datakeluarga'));
+    }
+
+    public function deleteanak(){
+        $this->anakModel->delete($id);
+        session()->setFlashdata('hapus', 'Data Berhasil Dihapus');
+
+        return redirect()->to(base_url('/kader/datakeluarga'));
+    }
+
+    public function editanak($id){
+        $data = array(
+            'id' => $id,
+            'nama_anak' => $this->request->getVar('nama'),
+            'tanggal_lahir' => $this->request->getVar('date'),
+            'umur' => $this->request->getVar('umur'),
+            'no_kk' => $this->request->getVar('no_kk'),
+            'nik' => $this->request->getVar('nik')
+        );
+        $this->anakModel->save($data);
+        session()->setFlashdata('edit', 'berhasil edit data anak');
 
         return redirect()->to(base_url('/kader/datakeluarga'));
     }

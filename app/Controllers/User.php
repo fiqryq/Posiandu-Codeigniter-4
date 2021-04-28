@@ -8,6 +8,7 @@ use App\Models\AnakModel;
 use App\Models\ImunisasiModel;
 use App\Models\PemeriksaanImunisasiModel;
 use App\Models\PesanModel;
+use App\Models\PosianduModel;
 
 
 class User extends BaseController
@@ -18,6 +19,7 @@ class User extends BaseController
     protected $imunisasiModel;
     protected $PemeriksaanImunisasiModel;
     protected $PesanModel;
+    protected $PosianduModel;
 
     public function __construct()
     {
@@ -27,6 +29,7 @@ class User extends BaseController
         $this->imunisasiModel = new ImunisasiModel();
         $this->PemeriksaanImunisasiModel = new PemeriksaanImunisasiModel();
         $this->PesanModel = new PesanModel();
+        $this->PosianduModel = new PosianduModel();
     }
 
     public function index()
@@ -77,7 +80,11 @@ class User extends BaseController
 
     public function jadwalposyandu()
     {
-        $data = ['title' => "Jadwal Podyandy"];
+        $posiandu = $this->PosianduModel->findAll();
+        $data = [
+            'title' => "Jadwal Posiandu",
+            'posiandu' => $posiandu
+        ];
         return view('user/jadwalposyandu', $data);
     }
 
