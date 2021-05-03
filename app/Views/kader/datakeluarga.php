@@ -72,7 +72,7 @@
                         <th>Nik</th>
                         <th>tanggal lahir</th>
                         <th>umur</th>
-                        <th></th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -87,7 +87,7 @@
                         <td><?= $key['umur']; ?></td>
                         <td>
                             <button class="btn btn-success btn-circle" data-toggle="modal"
-                                data-target="#editmodal<?= $id; ?>" data-whatever="@mdo">
+                                data-target="#editmodal<?= $id; ?>">
                                 <i class="fas fa-edit"></i>
                             </button>
                         </td>
@@ -146,7 +146,14 @@
                         </div>
                     </div>
                     <!-- End Modal -->
-
+                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                        aria-labelledby="myLargeModalLabel" aria-hidden="true" id="hapusmodal<?= $id; ?>">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                ...
+                            </div>
+                        </div>
+                    </div>
                     <!-- End Modal -->
                     <?php endforeach; ?>
                 </tbody>
@@ -213,7 +220,6 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<script src="<?= base_url() ?>/vendor/date/dist/js/bootstrap-datepicker.js"></script>
 
 <script>
 $('#orangtua').DataTable();

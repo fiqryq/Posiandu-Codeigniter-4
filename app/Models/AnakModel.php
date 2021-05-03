@@ -15,4 +15,10 @@ class AnakModel extends Model
         $data = $this->db->table($this->table)->getWhere(['no_kk' => $no_kk])->getResultObject();
         return $data;
     }
+
+    public function getAnak(){
+        $kk = session()->get('user_kk');
+        $data = $this->db->table($this->table)->getWhere(['no_kk' => $kk])->getResultObject();
+        return $data;
+    }
 }

@@ -7,6 +7,7 @@ use App\Models\PenyuluhanModel;
 use App\Models\AnakModel;
 use App\Models\ImunisasiModel;
 use App\Models\PemeriksaanImunisasiModel;
+use App\Models\PemeriksaanposianduModel;
 use App\Models\PesanModel;
 use App\Models\PosianduModel;
 
@@ -20,6 +21,7 @@ class User extends BaseController
     protected $PemeriksaanImunisasiModel;
     protected $PesanModel;
     protected $PosianduModel;
+    protected $PemeriksaanposianduModel;
 
     public function __construct()
     {
@@ -30,6 +32,7 @@ class User extends BaseController
         $this->PemeriksaanImunisasiModel = new PemeriksaanImunisasiModel();
         $this->PesanModel = new PesanModel();
         $this->PosianduModel = new PosianduModel();
+        $this->PemeriksaanposianduModel = new PemeriksaanposianduModel();
     }
 
     public function index()
@@ -133,9 +136,13 @@ class User extends BaseController
         return redirect()->to(base_url('user/edit_Profile'));
     }
 
-    public function detail()
+    public function detail($id)
     {
-        $data = ['title' => "Detail Anak"];
+        $detail = $this->PemeriksaanposianduModel->where('id_anak',$id)->findAll();
+        $data = [
+            'title' => "Detail Anak",
+            'detail' => $detail
+        ];
         return view('user/detail', $data);
     }
 

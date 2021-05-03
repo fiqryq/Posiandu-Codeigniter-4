@@ -42,14 +42,14 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Pemeriksaan
-                                        <?= $key['nama_imunisasi']; ?></h5>
+                                        Posiandu</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
                                     <!-- Content -->
-                                    <form action="/kader/periksaimunisasi" method="POST">
+                                    <form action="/kader/periksaposiandu" method="POST">
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Nama Anak</label>
                                             <input type="text" class="form-control" id="nama" name="nama"
@@ -74,27 +74,10 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="formGroupExampleInput">Tanggal Imunisasi</label>
+                                                    <label for="formGroupExampleInput">Tanggal Posiandu</label>
                                                     <input type="text" class="form-control" id="tanggal_imunisasi"
-                                                        name="tanggal_imunisasi"
-                                                        value="<?= $key['tanggal_imunisasi']; ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="formGroupExampleInput">Nama Imunisasi</label>
-                                                    <input type="text" class="form-control" id="nama_imunisasi"
-                                                        name="nama_imunisasi" value="<?= $key['nama_imunisasi']; ?>">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="formGroupExampleInput">Jenis Vitamin</label>
-                                                    <input type="text" class="form-control" id="vitamin" name="vitamin"
-                                                        placeholder="Masukan jenis vitamin">
+                                                        name="tanggal_posiandu"
+                                                        value="<?= $key['tanggal_posiandu']; ?>">
                                                 </div>
                                             </div>
                                         </div>

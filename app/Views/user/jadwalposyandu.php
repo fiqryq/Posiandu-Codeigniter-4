@@ -11,7 +11,6 @@
             <h6 class="m-0 font-weight-bold text-dark">Jadwal Posiandu</h6>
         </div>
         <div class="card-body">
-            <!-- start form -->
             <!-- start  -->
             <table id="example" class="display" style="width:100%">
                 <thead>

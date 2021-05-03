@@ -9,6 +9,8 @@ use App\Models\DetailImunisasiModel;
 use App\Models\AnakModel;
 use App\Models\PemeriksaanImunisasiModel;
 use App\Models\KeluargaModel;
+use App\Models\PemeriksaanposianduModel;
+use App\Models\DetailPosianduModel;
 
 class Kader extends BaseController
 {
@@ -19,6 +21,8 @@ class Kader extends BaseController
     protected $PemeriksaanImunisasiModel;
     protected $KeluargaModel;
     protected $PosianduModel;
+    protected $PemeriksaanposianduModel;
+    protected $DetailPosianduModel;
 
     public function __construct()
     {
@@ -29,6 +33,8 @@ class Kader extends BaseController
         $this->KeluargaModel = new KeluargaModel();
         $this->PemeriksaanImunisasiModel = new PemeriksaanImunisasiModel();
         $this->PosianduModel = new PosianduModel();
+        $this->PemeriksaanposianduModel = new PemeriksaanposianduModel();
+        $this->DetailPosianduModel = new DetailPosianduModel();
     }
 
     public function index()
@@ -168,6 +174,19 @@ class Kader extends BaseController
         );
         
         $this->PosianduModel->save($data);
+
+        $anak = $this->anakModel->findAll();
+
+        foreach($anak as $key){
+            $this->DetailPosianduModel->save([
+                'no_kk' => $key['no_kk'],
+                'nama_anak' => $key['nama_anak'],
+                'tanggal_posiandu' => $this->request->getVar('date'),
+                'id_anak' => $key['id']
+            ]);
+        }
+        
+
         session()->setFlashdata('tambah', 'Berhasil membuat jadwal posiandu');
 
         return redirect()->to(base_url('kader/jadwalposyandu'));
@@ -214,6 +233,15 @@ class Kader extends BaseController
         return redirect()->to(base_url('kader/jadwalposyandu'));
     }
 
+    public function detailposiandu($slug){
+        $detail = $this->DetailPosianduModel->where('tanggal_posiandu', $slug)->findAll();
+        $data = [
+            'title' => "Detail Posiandu",
+            'detail' => $detail
+        ];
+        return view('kader/detailposiandu', $data);
+    }
+
     public function laporan()
     {
         $data = ['title' => "Laporan"];
@@ -244,12 +272,13 @@ class Kader extends BaseController
         return view('kader/editprofile', $data);
     }
 
-    public function addcatatan(){
+    public function periksaimunisasi(){
        $data = array(
            'id_anak' => $this->request->getVar('id_anak'),
            'nama_anak' => $this->request->getVar('nama'),
            'tanggal_imunisasi' => $this->request->getVar('tanggal_imunisasi'),
            'nama_imunisasi' => $this->request->getVar('nama_imunisasi'),
+           'vitamin' => $this->request->getVar('vitamin'),
            'berat' => $this->request->getVar('berat'),
            'tinggi' => $this->request->getVar('tinggi'),
            'lingkarbadan' => $this->request->getVar('lingkarbadan'),
@@ -260,6 +289,23 @@ class Kader extends BaseController
        $this->PemeriksaanImunisasiModel->save($data);
        session()->setFlashdata('tambah', 'berhasil update pemeriksaan');
        return redirect()->to(base_url('/kader/jadwalimunisasi'));
+    }
+
+    public function periksaposiandu(){
+        $data = array(
+            'id_anak' => $this->request->getVar('id_anak'),
+            'nama_anak' => $this->request->getVar('nama'),
+            'tanggal_posiandu' => $this->request->getVar('tanggal_posiandu'),
+            'berat' => $this->request->getVar('berat'),
+            'tinggi' => $this->request->getVar('tinggi'),
+            'lingkarbadan' => $this->request->getVar('lingkarbadan'),
+            'lingkarkepala' => $this->request->getVar('lingkarkepala'),
+            'no_kk' => $this->request->getVar('no_kk'),
+            'catatan' => $this->request->getVar('catatan')
+        );
+        $this->PemeriksaanposianduModel->save($data);
+        session()->setFlashdata('tambah', 'berhasil update pemeriksaan');
+        return redirect()->to(base_url('/kader/jadwalposyandu'));
     }
 
     public function addanak(){

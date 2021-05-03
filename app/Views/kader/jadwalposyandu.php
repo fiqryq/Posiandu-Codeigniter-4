@@ -57,6 +57,7 @@
                     <?php foreach($posiandu as $key) :  ?>
                     <?php 
                         $id = $key['id'];
+                        $slug = $key['tanggal_posiandu'];
                         // Convert time
                         $mulairaw = $key['waktu_mulai'];
                         $mulai = date('H:i', strtotime($mulairaw));
@@ -69,6 +70,10 @@
                         <td><?= $key['tanggal_posiandu']; ?></td>
                         <td><?= $mulai ?> - <?= $selesai ?></td>
                         <td>
+                            <a href="<?= base_url('kader/detailposiandu/'. $slug); ?>"
+                                class="btn btn-primary btn-circle">
+                                <i class="fas fa-list"></i>
+                            </a>
                             <a href="" class="btn btn-success btn-circle" data-toggle="modal"
                                 data-target="#editmodal<?= $id; ?>" data-whatever="@mdo">
                                 <i class="fas fa-edit"></i>
