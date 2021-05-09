@@ -6,6 +6,7 @@ use App\Models\ArtikelModel;
 use App\Models\PenyuluhanModel;
 use App\Models\UserModel;
 use App\Models\PesanModel;
+use App\Models\LaporanModel;
 
 
 class Bidan extends BaseController
@@ -13,6 +14,7 @@ class Bidan extends BaseController
     protected $artikelmodel;
     protected $penyuluhanmodel;
     protected $PesanModel;
+    protected $LaporanModel;
 
     public function __construct()
     {
@@ -20,6 +22,8 @@ class Bidan extends BaseController
         $this->penyuluhanmodel = new PenyuluhanModel();
         $this->userModel = new UserModel();
         $this->PesanModel = new PesanModel();
+        $this->LaporanModel = new LaporanModel();
+
     }
 
     public function index()
@@ -184,8 +188,11 @@ class Bidan extends BaseController
     }
 
     public function laporan()
-    {
-        $data = ['title' => "laporan"];
+    {   $laporan = $this->LaporanModel->findAll();
+        $data = [
+            'title' => "laporan",
+            'laporan' => $laporan
+        ];
         return view('bidan/laporan', $data);
     }
 
