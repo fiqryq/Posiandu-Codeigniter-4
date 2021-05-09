@@ -49,6 +49,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Tanggal Pemeriksaan</th>
                         <th>Nama Anak</th>
                         <th>Berat Badan</th>
                         <th>Tinggi Badan</th>
@@ -62,6 +63,7 @@
                         ?>
                     <tr>
                         <td><?= $i++; ?></td>
+                        <td><?= $key['tanggal_posiandu']; ?></td>
                         <td><?= $key['nama_anak']; ?></td>
                         <td><?= $key['berat']; ?> KG</td>
                         <td><?= $key['tinggi']; ?> CM</td>

@@ -197,17 +197,10 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<script src="<?= base_url() ?>/vendor/date/dist/js/bootstrap-datepicker.js"></script>
 
 <script>
 $('#example').DataTable();
 </script>
 
-<script>
-$('.datepicker').datepicker({
-    format: 'yyy/mm/dd',
-    startDate: '-3d'
-});
-</script>
 <!-- end content -->
 <?= $this->endSection(); ?>
