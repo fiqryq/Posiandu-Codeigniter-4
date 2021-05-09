@@ -29,8 +29,9 @@
                     <tr>
                         <th>No</th>
                         <th>Kegiatan</th>
-                        <th>Tanggal Kegiatan</th>
-                        <th>Nama Anak</th>
+                        <th>Tanggal</th>
+                        <th>Bulan</th>
+                        <th>Nama</th>
                         <th>Berat</th>
                         <th>Tinggi</th>
                         <th>Lingkar Badan</th>
@@ -40,10 +41,42 @@
                 <tbody>
                     <?php $i=1; ?>
                     <?php foreach($laporan as $key) : ?>
+                    <?php 
+                            $oridate = $key['tanggal_kegiatan'];
+                            $timestamp = strtotime($oridate);
+                            $month = date('M',$timestamp);
+
+                            if ($month == "Jan") {
+                                $month = "Januari";
+                            } else if ($month == "Feb") {
+                                $month = "Februari";
+                            } else if ($month == "Mar") {
+                                $month = "Maret";
+                            } else if ($month == "Apr") {
+                                $month = "April";
+                            } else if ($month == "May") {
+                                $month = "Mei";
+                            } else if ($month == "Jun") {
+                                $month = "Juni";
+                            } else if ($month == "Jul") {
+                                $month = "Juli";
+                            } else if ($month == "Aug") {
+                                $month = "Agustus";
+                            } else if ($month == "Sep") {
+                                $month = "September";
+                            } else if ($month == "Oct") {
+                                $month = "Oktober";
+                            } else if ($month == "Nov") {
+                                $month = "November";
+                            } else if ($month == "Dec") {
+                                $month = "Desember";
+                            }
+                        ?>
                     <tr>
                         <td><?= $i++; ?></td>
                         <td><?= $key['jenis_kegiatan']; ?></td>
                         <td><?= $key['tanggal_kegiatan']; ?></td>
+                        <td><?= $month ?></td>
                         <td><?= $key['nama_anak']; ?></td>
                         <td><?= $key['berat']; ?> kg</td>
                         <td><?= $key['tinggi']; ?> cm</td>
@@ -88,7 +121,7 @@ $('#laporan').DataTable({
             var column = this;
             if (column.index() == 0) {
                 input = $('<input type="text" placeholder="cari nomor"/>').appendTo($(column
-                .header())).on(
+                    .header())).on(
                     'keyup change',
                     function() {
                         if (column.search() !== this.value) {
