@@ -20,17 +20,12 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
                     </tr>
                     <tr>
                         <th>No</th>
                         <th>Kegiatan</th>
-                        <th>Tanggal</th>
                         <th>Bulan</th>
+                        <th>Tanggal</th>
                         <th>Nama</th>
                         <th>Berat</th>
                         <th>Tinggi</th>
@@ -75,8 +70,8 @@
                     <tr>
                         <td><?= $i++; ?></td>
                         <td><?= $key['jenis_kegiatan']; ?></td>
-                        <td><?= $key['tanggal_kegiatan']; ?></td>
                         <td><?= $month ?></td>
+                        <td><?= $key['tanggal_kegiatan']; ?></td>
                         <td><?= $key['nama_anak']; ?></td>
                         <td><?= $key['berat']; ?> kg</td>
                         <td><?= $key['tinggi']; ?> cm</td>
@@ -115,13 +110,13 @@
 $('#laporan').DataTable({
     dom: 'Bfrtip',
     buttons: [
-        'pdf', 'print'
+        'pdf'
     ],
     initComplete: function() {
         this.api().columns().every(function() {
             var column = this;
             if (column.index() == 0) {
-                input = $('<input type="text" placeholder="cari nomor"/>').appendTo($(column
+                input = $('<input type="text" placeholder="cari nomor"/ hidden>').appendTo($(column
                     .header())).on(
                     'keyup change',
                     function() {

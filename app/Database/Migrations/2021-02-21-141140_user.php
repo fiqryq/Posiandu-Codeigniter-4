@@ -29,11 +29,23 @@ class User extends Migration
 				'type'       => 'VARCHAR',
 				'constraint' => '255',
 			],
+			'user_phone'       => [
+				'type'       => 'VARCHAR',
+				'constraint' => '255',
+			],
 			'user_nik'        => [
 				'type'       => 'VARCHAR',
 				'constraint' => '255',
 			],
+			'user_kk'        => [
+				'type'       => 'VARCHAR',
+				'constraint' => '255',
+			],
 			'level'        => [
+				'type'       => 'INT',
+				'constraint' => '5',
+			],
+			'is_parent'        => [
 				'type'       => 'INT',
 				'constraint' => '5',
 			],
